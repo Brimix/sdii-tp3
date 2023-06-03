@@ -1,0 +1,14 @@
+../drivers/fsl_common.h:473:28:DisableGlobalIRQ	16	static
+../drivers/fsl_common.h:500:24:EnableGlobalIRQ	24	static
+../drivers/fsl_smc.c:58:6:SMC_PreEnterStopModes	16	static
+../drivers/fsl_smc.c:83:6:SMC_PostExitStopModes	16	static
+../drivers/fsl_smc.c:103:6:SMC_PreEnterWaitModes	8	static
+../drivers/fsl_smc.c:109:6:SMC_PostExitWaitModes	8	static
+../drivers/fsl_smc.c:115:10:SMC_SetPowerModeRun	24	static
+../drivers/fsl_smc.c:143:10:SMC_SetPowerModeWait	16	static
+../drivers/fsl_smc.c:154:10:SMC_SetPowerModeStop	24	static
+../drivers/fsl_smc.c:192:10:SMC_SetPowerModeVlpr	24	static
+../drivers/fsl_smc.c:224:10:SMC_SetPowerModeVlpw	16	static
+../drivers/fsl_smc.c:236:10:SMC_SetPowerModeVlps	24	static
+../drivers/fsl_smc.c:267:10:SMC_SetPowerModeLls	24	static
+../drivers/fsl_smc.c:324:10:SMC_SetPowerModeVlls	24	static

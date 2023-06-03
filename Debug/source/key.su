@@ -1,0 +1,3 @@
+../source/key.c:61:6:key_init	16	static
+../source/key.c:72:6:key_getPressEv	24	static
+../source/key.c:91:6:key_periodicTask1ms	16	static

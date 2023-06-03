@@ -1,0 +1,7 @@
+../drivers/fsl_clock.h:791:20:CLOCK_SetSimSafeDivs	8	static
+../drivers/fsl_clock.h:1122:20:CLOCK_SetXtal0Freq	16	static
+../drivers/fsl_smc.h:286:20:SMC_SetPowerModeProtection	16	static
+../drivers/fsl_smc.h:305:33:SMC_GetPowerModeState	16	static
+../board/clock_config.c:102:13:CLOCK_CONFIG_SetFllExtRefDiv	16	static
+../board/clock_config.c:186:6:BOARD_BootClockRUN	8	static
+../board/clock_config.c:279:6:BOARD_BootClockVLPR	8	static

@@ -1,0 +1,3 @@
+../CMSIS/system_MKL46Z4.c:121:6:SystemInit	8	static
+../CMSIS/system_MKL46Z4.c:136:6:SystemCoreClockUpdate	16	static
+../CMSIS/system_MKL46Z4.c:226:29:SystemInitHook	8	static

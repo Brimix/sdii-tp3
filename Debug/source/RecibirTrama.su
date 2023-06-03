@@ -1,0 +1,7 @@
+../source/RecibirTrama.c:9:6:mef_detectar_trama	16	static
+../source/RecibirTrama.c:91:6:LEDS	8	static
+../source/RecibirTrama.c:139:6:SWITCH	8	static
+../source/RecibirTrama.c:174:6:ACELEROM	24	static
+../source/RecibirTrama.c:183:6:Procesando	8	static
+../source/RecibirTrama.c:207:6:mef_ProcyResp_Trama	8	static
+../source/RecibirTrama.c:241:6:Ok_Procesar_Trama	16	static

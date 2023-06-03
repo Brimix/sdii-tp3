@@ -1,0 +1,6 @@
+../source/ringBuffer.c:62:7:ringBuffer_init	24	static
+../source/ringBuffer.c:80:6:ringBuffer_deInit	16	static
+../source/ringBuffer.c:85:6:ringBuffer_putData	24	static
+../source/ringBuffer.c:114:6:ringBuffer_getData	24	static
+../source/ringBuffer.c:136:6:ringBuffer_isFull	24	static
+../source/ringBuffer.c:143:6:ringBuffer_isEmpty	24	static

@@ -1,0 +1,14 @@
+../drivers/fsl_clock.h:601:20:CLOCK_EnableClock	24	static
+../drivers/fsl_port.h:268:20:PORT_SetPinConfig	32	static
+../drivers/fsl_port.h:371:20:PORT_SetPinMux	24	static
+../board/pin_mux.c:164:6:BOARD_InitBootPins	8	static
+../board/pin_mux.c:186:6:BOARD_InitPins	8	static
+../board/pin_mux.c:212:6:BOARD_InitACCEL	32	static
+../board/pin_mux.c:307:6:BOARD_InitDEBUG_UART	16	static
+../board/pin_mux.c:372:6:BOARD_InitButtons	24	static
+../board/pin_mux.c:438:6:BOARD_InitLEDs	24	static
+../board/pin_mux.c:506:6:BOARD_InitTouch	16	static
+../board/pin_mux.c:558:6:BOARD_InitUSB	8	static
+../board/pin_mux.c:590:6:BOARD_InitSegment_LCD	56	static
+../board/pin_mux.c:776:6:BOARD_InitOSC	8	static
+../board/pin_mux.c:808:6:BOARD_InitMAG	24	static

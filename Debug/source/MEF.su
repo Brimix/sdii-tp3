@@ -1,0 +1,7 @@
+../source/MEF.c:9:6:mef_detectar_trama	16	static
+../source/MEF.c:73:6:LEDS	8	static
+../source/MEF.c:115:6:SWITCH	8	static
+../source/MEF.c:146:6:ACELEROM	24	static
+../source/MEF.c:153:6:Procesando	8	static
+../source/MEF.c:176:6:mef_procesar_trama	8	static
+../source/MEF.c:203:6:procesar_trama	16	static

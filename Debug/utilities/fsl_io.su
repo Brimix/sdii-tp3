@@ -1,0 +1,8 @@
+../drivers/fsl_uart.h:523:20:UART_EnableTx	16	static
+../drivers/fsl_uart.h:543:20:UART_EnableRx	16	static
+../drivers/fsl_lpsci.h:483:20:LPSCI_EnableTx	16	static
+../drivers/fsl_lpsci.h:503:20:LPSCI_EnableRx	16	static
+../utilities/fsl_io.c:253:6:IO_Init	56	static
+../utilities/fsl_io.c:389:10:IO_Deinit	8	static
+../utilities/fsl_io.c:467:10:IO_WaitIdle	8	static
+../utilities/fsl_io.c:721:10:IO_Transfer	32	static

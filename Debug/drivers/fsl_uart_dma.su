@@ -1,0 +1,16 @@
+../drivers/fsl_uart.h:442:24:UART_GetDataRegisterAddress	16	static
+../drivers/fsl_uart.h:455:20:UART_EnableTxDMA	16	static
+../drivers/fsl_uart.h:485:20:UART_EnableRxDMA	16	static
+../drivers/fsl_dma.h:378:20:DMA_DisableInterrupts	16	static
+../drivers/fsl_dma.h:445:24:DMA_GetRemainingBytes	16	static
+../drivers/fsl_dma.h:475:20:DMA_ClearChannelStatusFlags	24	static
+../drivers/fsl_dma.h:562:20:DMA_StartTransfer	16	static
+../drivers/fsl_uart_dma.c:126:13:UART_TransferSendDMACallback	32	static
+../drivers/fsl_uart_dma.c:148:13:UART_TransferReceiveDMACallback	32	static
+../drivers/fsl_uart_dma.c:170:6:UART_TransferCreateHandleDMA	32	static
+../drivers/fsl_uart_dma.c:223:10:UART_TransferSendDMA	72	static
+../drivers/fsl_uart_dma.c:261:10:UART_TransferReceiveDMA	72	static
+../drivers/fsl_uart_dma.c:299:6:UART_TransferAbortSendDMA	16	static
+../drivers/fsl_uart_dma.c:316:6:UART_TransferAbortReceiveDMA	16	static
+../drivers/fsl_uart_dma.c:333:10:UART_TransferGetSendCountDMA	32	static
+../drivers/fsl_uart_dma.c:349:10:UART_TransferGetReceiveCountDMA	32	static

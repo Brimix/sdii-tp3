@@ -1,0 +1,7 @@
+../drivers/fsl_clock.h:601:20:CLOCK_EnableClock	24	static
+../drivers/fsl_port.h:268:20:PORT_SetPinConfig	32	static
+../drivers/fsl_gpio.h:161:20:GPIO_PinWrite	24	static
+../source/SD2_I2C.c:64:13:i2c_release_bus_delay	16	static
+../source/SD2_I2C.c:80:13:I2C_releaseBus	16	static
+../source/SD2_I2C.c:131:13:I2C_configPins	16	static
+../source/SD2_I2C.c:162:6:SD2_I2C_init	24	static

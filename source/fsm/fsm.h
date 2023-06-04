@@ -9,16 +9,6 @@
 #include "bsp_kl46/mma8451.h"
 
 
-#define MAX_REC		8
-#define CHAR_FIN	0x0A
-
-typedef enum{
-	MEF_DETECTAR_ESPERANDO = 0,
-	MEF_DETECTAR_1,
-	MEF_DETECTAR_6,
-	MEF_DETECTAR_RESTO,
-}mef_detectar_trama_enum;
-
 typedef enum{
 	NO,
 	SI
@@ -36,6 +26,5 @@ void ACELEROM();
 void Procesando();
 void procesar_trama(char *buffer, int longitud);
 void mef_procesar_trama();
-void mef_detectar_trama();
 
 

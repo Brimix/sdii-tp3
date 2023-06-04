@@ -3626,7 +3626,7 @@ LOAD linker stubs
  .debug_abbrev  0x00000000000024a8      0x201 ./board/clock_config.o
  .debug_abbrev  0x00000000000026a9      0x148 ./CMSIS/system_MKL46Z4.o
 
-.debug_aranges  0x0000000000000000      0xc50
+.debug_aranges  0x0000000000000000      0xc68
  .debug_aranges
                 0x0000000000000000      0x160 ./startup/startup_mkl46z4.o
  .debug_aranges
@@ -3648,27 +3648,29 @@ LOAD linker stubs
  .debug_aranges
                 0x00000000000003f8       0x20 ./source/semihost_hardfault.o
  .debug_aranges
-                0x0000000000000418      0x1d8 ./drivers/fsl_clock.o
+                0x0000000000000410       0x20 ./source/semihost_hardfault.o
  .debug_aranges
-                0x00000000000005f0       0xd0 ./drivers/fsl_dma.o
+                0x0000000000000430      0x1d8 ./drivers/fsl_clock.o
  .debug_aranges
-                0x00000000000006c0       0x40 ./drivers/fsl_dmamux.o
+                0x0000000000000608       0xd0 ./drivers/fsl_dma.o
  .debug_aranges
-                0x0000000000000700       0x78 ./drivers/fsl_gpio.o
+                0x00000000000006d8       0x40 ./drivers/fsl_dmamux.o
  .debug_aranges
-                0x0000000000000778      0x178 ./drivers/fsl_i2c.o
+                0x0000000000000718       0x78 ./drivers/fsl_gpio.o
  .debug_aranges
-                0x00000000000008f0      0x118 ./drivers/fsl_lpsci.o
+                0x0000000000000790      0x178 ./drivers/fsl_i2c.o
  .debug_aranges
-                0x0000000000000a08      0x130 ./drivers/fsl_uart.o
+                0x0000000000000908      0x118 ./drivers/fsl_lpsci.o
  .debug_aranges
-                0x0000000000000b38       0x98 ./drivers/fsl_uart_dma.o
+                0x0000000000000a20      0x130 ./drivers/fsl_uart.o
  .debug_aranges
-                0x0000000000000bd0       0x50 ./board/clock_config.o
+                0x0000000000000b50       0x98 ./drivers/fsl_uart_dma.o
  .debug_aranges
-                0x0000000000000c20       0x30 ./CMSIS/system_MKL46Z4.o
+                0x0000000000000be8       0x50 ./board/clock_config.o
+ .debug_aranges
+                0x0000000000000c38       0x30 ./CMSIS/system_MKL46Z4.o
 
-.debug_ranges   0x0000000000000000      0xb08
+.debug_ranges   0x0000000000000000      0xb10
  .debug_ranges  0x0000000000000000      0x150 ./startup/startup_mkl46z4.o
  .debug_ranges  0x0000000000000150       0x40 ./source/fsm/fsm.o
  .debug_ranges  0x0000000000000190       0x38 ./source/efHal/ringBuffer.o
@@ -3868,113 +3870,115 @@ LOAD linker stubs
  .ARM.attributes
                 0x000000000000018c       0x2c ./source/semihost_hardfault.o
  .ARM.attributes
-                0x00000000000001b8       0x2c ./drivers/fsl_clock.o
+                0x00000000000001b8       0x2c ./source/semihost_hardfault.o
  .ARM.attributes
-                0x00000000000001e4       0x2c ./drivers/fsl_dma.o
+                0x00000000000001e4       0x2c ./drivers/fsl_clock.o
  .ARM.attributes
-                0x0000000000000210       0x2c ./drivers/fsl_dmamux.o
+                0x0000000000000210       0x2c ./drivers/fsl_dma.o
  .ARM.attributes
-                0x000000000000023c       0x2c ./drivers/fsl_gpio.o
+                0x000000000000023c       0x2c ./drivers/fsl_dmamux.o
  .ARM.attributes
-                0x0000000000000268       0x2c ./drivers/fsl_i2c.o
+                0x0000000000000268       0x2c ./drivers/fsl_gpio.o
  .ARM.attributes
-                0x0000000000000294       0x2c ./drivers/fsl_lpsci.o
+                0x0000000000000294       0x2c ./drivers/fsl_i2c.o
  .ARM.attributes
-                0x00000000000002c0       0x2c ./drivers/fsl_uart.o
+                0x00000000000002c0       0x2c ./drivers/fsl_lpsci.o
  .ARM.attributes
-                0x00000000000002ec       0x2c ./drivers/fsl_uart_dma.o
+                0x00000000000002ec       0x2c ./drivers/fsl_uart.o
  .ARM.attributes
-                0x0000000000000318       0x2c ./board/clock_config.o
+                0x0000000000000318       0x2c ./drivers/fsl_uart_dma.o
  .ARM.attributes
-                0x0000000000000344       0x2c ./CMSIS/system_MKL46Z4.o
+                0x0000000000000344       0x2c ./board/clock_config.o
  .ARM.attributes
-                0x0000000000000370       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(_cr__main.o)
+                0x0000000000000370       0x2c ./CMSIS/system_MKL46Z4.o
  .ARM.attributes
-                0x000000000000039c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(_cr_assert.o)
+                0x000000000000039c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(_cr__main.o)
  .ARM.attributes
-                0x00000000000003c8       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__ciob.o)
+                0x00000000000003c8       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(_cr_assert.o)
  .ARM.attributes
-                0x00000000000003f4       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_appexit.o)
+                0x00000000000003f4       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__ciob.o)
  .ARM.attributes
-                0x0000000000000410       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(memcpy.o)
+                0x0000000000000420       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_appexit.o)
  .ARM.attributes
-                0x000000000000043c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(memset.o)
+                0x000000000000043c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(memcpy.o)
  .ARM.attributes
-                0x0000000000000468       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_deferredlazyseek.o)
+                0x0000000000000468       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(memset.o)
  .ARM.attributes
-                0x0000000000000494       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_fflush.o)
+                0x0000000000000494       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_deferredlazyseek.o)
  .ARM.attributes
-                0x00000000000004c0       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_writebuf.o)
+                0x00000000000004c0       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_fflush.o)
  .ARM.attributes
-                0x00000000000004ec       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(alloc.o)
+                0x00000000000004ec       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_writebuf.o)
  .ARM.attributes
-                0x0000000000000518       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fputs.o)
+                0x0000000000000518       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(alloc.o)
  .ARM.attributes
-                0x0000000000000544       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fseek.o)
+                0x0000000000000544       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fputs.o)
  .ARM.attributes
-                0x0000000000000570       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(ftell.o)
+                0x0000000000000570       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fseek.o)
  .ARM.attributes
-                0x000000000000059c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(initio.o)
+                0x000000000000059c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(ftell.o)
  .ARM.attributes
-                0x00000000000005c8       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(pow.o)
+                0x00000000000005c8       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(initio.o)
  .ARM.attributes
-                0x00000000000005f4       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
+                0x00000000000005f4       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(pow.o)
  .ARM.attributes
-                0x0000000000000620       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(setvbuf.o)
+                0x0000000000000620       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(printf.o)
  .ARM.attributes
-                0x000000000000064c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(sqrt.o)
+                0x000000000000064c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(setvbuf.o)
  .ARM.attributes
-                0x0000000000000678       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(strlen.o)
+                0x0000000000000678       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(sqrt.o)
  .ARM.attributes
-                0x00000000000006a4       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(__init_alloc.o)
+                0x00000000000006a4       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(strlen.o)
  .ARM.attributes
-                0x00000000000006d0       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_cr_sbrk.o)
+                0x00000000000006d0       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(__init_alloc.o)
  .ARM.attributes
-                0x00000000000006fc       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_fdopen.o)
+                0x00000000000006fc       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_cr_sbrk.o)
  .ARM.attributes
-                0x0000000000000728       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(errno.o)
+                0x0000000000000728       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_fdopen.o)
  .ARM.attributes
-                0x0000000000000754       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fclose.o)
+                0x0000000000000754       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(errno.o)
  .ARM.attributes
-                0x0000000000000780       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fflush.o)
+                0x0000000000000780       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fclose.o)
  .ARM.attributes
-                0x00000000000007ac       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(frexp.o)
+                0x00000000000007ac       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fflush.o)
  .ARM.attributes
-                0x00000000000007d8       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(ldexp.o)
+                0x00000000000007d8       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(frexp.o)
  .ARM.attributes
-                0x0000000000000804       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(remove.o)
+                0x0000000000000804       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(ldexp.o)
  .ARM.attributes
-                0x0000000000000830       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_cr_check_heap.o)
+                0x0000000000000830       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(remove.o)
  .ARM.attributes
-                0x000000000000085c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_do_fflush.o)
+                0x000000000000085c       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_cr_check_heap.o)
  .ARM.attributes
-                0x0000000000000888       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(division_32.o)
+                0x0000000000000888       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_do_fflush.o)
  .ARM.attributes
-                0x00000000000008a4       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(division_idiv0.o)
+                0x00000000000008b4       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(division_32.o)
  .ARM.attributes
-                0x00000000000008c0       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(double.o)
+                0x00000000000008d0       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(division_idiv0.o)
  .ARM.attributes
-                0x00000000000008ec       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(llong.o)
+                0x00000000000008ec       0x2c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(double.o)
  .ARM.attributes
-                0x0000000000000908       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(memcpy.o)
+                0x0000000000000918       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(llong.o)
  .ARM.attributes
-                0x0000000000000924       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(thumb1_switch_helpers.o)
+                0x0000000000000934       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(memcpy.o)
  .ARM.attributes
-                0x0000000000000940       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_close.o)
+                0x0000000000000950       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libcr_eabihelpers.a(thumb1_switch_helpers.o)
  .ARM.attributes
-                0x000000000000095c       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_flen.o)
+                0x000000000000096c       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_close.o)
  .ARM.attributes
-                0x0000000000000978       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_istty.o)
+                0x0000000000000988       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_flen.o)
  .ARM.attributes
-                0x0000000000000994       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_remove.o)
+                0x00000000000009a4       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_istty.o)
  .ARM.attributes
-                0x00000000000009b0       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_seek.o)
+                0x00000000000009c0       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_remove.o)
  .ARM.attributes
-                0x00000000000009cc       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_tmpnam.o)
+                0x00000000000009dc       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_seek.o)
  .ARM.attributes
-                0x00000000000009e8       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_write.o)
+                0x00000000000009f8       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_tmpnam.o)
+ .ARM.attributes
+                0x0000000000000a14       0x1c /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_semihost_nf.a(__sys_write.o)
 
-.debug_frame    0x0000000000000000     0x28f4
+.debug_frame    0x0000000000000000     0x2904
  .debug_frame   0x0000000000000000      0x3b0 ./startup/startup_mkl46z4.o
  .debug_frame   0x00000000000003b0       0xe4 ./source/fsm/fsm.o
  .debug_frame   0x0000000000000494       0xd0 ./source/efHal/ringBuffer.o
@@ -4635,6 +4639,8 @@ fseek                                             /usr/local/mcuxpressoide-11.7.
                                                   /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_do_fflush.o)
                                                   /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_fdopen.o)
                                                   /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(_deferredlazyseek.o)
+fsm_frameDetection_execute                        ./source/fsm/fsm_frameDetection.o
+                                                  ./source/main.o
 ftell                                             /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(ftell.o)
                                                   /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(fseek.o)
 g_pfnVectors                                      ./startup/startup_mkl46z4.o

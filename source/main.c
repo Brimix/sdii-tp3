@@ -1,4 +1,6 @@
+#include <fsm/fsm_frameDetection.h>
 #include <fsm/fsm.h>
+
 #include <stdio.h>
 #include "board.h"
 #include "clock_config.h"
@@ -16,7 +18,7 @@ int main(void){
 	uart_ringBuffer_init(); // Inicialización UART1, DMA, creación de Cola Circular
     while(1)
     {
-    	mef_detectar_trama();
+    	fsm_frameDetection_execute();
     	mef_procesar_trama();
     }
 }

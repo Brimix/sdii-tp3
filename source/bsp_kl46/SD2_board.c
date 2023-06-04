@@ -149,7 +149,7 @@ void board_init(void)
 
 
 	/* inicialización de SWs */
-	for (i = 0 ; i < BOARD_SW_ID_TOTAL ; i++)
+	for (i = 0 ; i < BOARD_SW_ID_TOTAL; i++)
 	{
 		PORT_SetPinConfig(board_gpioSw[i].port, board_gpioSw[i].pin, &port_sw_config);
 		GPIO_PinInit(board_gpioSw[i].gpio, board_gpioSw[i].pin, &gpio_sw_config);

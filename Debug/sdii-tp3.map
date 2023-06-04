@@ -439,57 +439,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x52 ./source/fsm/fsm.o
  .debug_macro   0x0000000000000000      0x10a ./source/fsm/fsm.o
  .debug_macro   0x0000000000000000       0x74 ./source/fsm/fsm.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .group         0x0000000000000000        0xc ./source/efHal/key.o
- .text          0x0000000000000000        0x0 ./source/efHal/key.o
- .data          0x0000000000000000        0x0 ./source/efHal/key.o
- .bss           0x0000000000000000        0x0 ./source/efHal/key.o
- .bss.estSW     0x0000000000000000        0x2 ./source/efHal/key.o
- .bss.eventSW   0x0000000000000000        0x2 ./source/efHal/key.o
- .text.key_init
-                0x0000000000000000       0x40 ./source/efHal/key.o
- .text.key_getPressEv
-                0x0000000000000000       0x58 ./source/efHal/key.o
- .text.key_periodicTask1ms
-                0x0000000000000000       0x98 ./source/efHal/key.o
- .debug_info    0x0000000000000000      0x1a4 ./source/efHal/key.o
- .debug_abbrev  0x0000000000000000       0xf1 ./source/efHal/key.o
- .debug_aranges
-                0x0000000000000000       0x30 ./source/efHal/key.o
- .debug_ranges  0x0000000000000000       0x20 ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0xba ./source/efHal/key.o
- .debug_macro   0x0000000000000000      0xa84 ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x3f ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x10 ./source/efHal/key.o
- .debug_macro   0x0000000000000000      0x12e ./source/efHal/key.o
- .debug_macro   0x0000000000000000      0x5b3 ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x1c ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x22 ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0xaf ./source/efHal/key.o
- .debug_macro   0x0000000000000000      0x37c ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x38 ./source/efHal/key.o
- .debug_macro   0x0000000000000000     0x87f8 ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x22 ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x10 ./source/efHal/key.o
- .debug_macro   0x0000000000000000       0x10 ./source/efHal/key.o
- .debug_line    0x0000000000000000      0x302 ./source/efHal/key.o
- .debug_str     0x0000000000000000    0x42d8a ./source/efHal/key.o
- .comment       0x0000000000000000       0x4a ./source/efHal/key.o
- .debug_frame   0x0000000000000000       0x70 ./source/efHal/key.o
- .ARM.attributes
-                0x0000000000000000       0x2c ./source/efHal/key.o
  .group         0x0000000000000000        0xc ./source/efHal/ringBuffer.o
  .group         0x0000000000000000        0xc ./source/efHal/ringBuffer.o
  .group         0x0000000000000000        0xc ./source/efHal/ringBuffer.o
@@ -2612,7 +2561,6 @@ LOAD ./utilities/fsl_log.o
 LOAD ./utilities/fsl_str.o
 LOAD ./startup/startup_mkl46z4.o
 LOAD ./source/fsm/fsm.o
-LOAD ./source/efHal/key.o
 LOAD ./source/efHal/ringBuffer.o
 LOAD ./source/efHal/uart_ringBufer.o
 LOAD ./source/bsp_kl46/SD2_I2C.o
@@ -3634,49 +3582,49 @@ END GROUP
 OUTPUT(sdii-tp3.axf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000     0xd6e4
+.debug_info     0x0000000000000000     0xd6d6
  .debug_info    0x0000000000000000      0x4eb ./startup/startup_mkl46z4.o
  .debug_info    0x00000000000004eb      0x4a7 ./source/fsm/fsm.o
  .debug_info    0x0000000000000992      0x269 ./source/efHal/ringBuffer.o
  .debug_info    0x0000000000000bfb      0xf91 ./source/efHal/uart_ringBufer.o
  .debug_info    0x0000000000001b8c      0x795 ./source/bsp_kl46/SD2_I2C.o
- .debug_info    0x0000000000002321      0xc4e ./source/bsp_kl46/SD2_board.o
- .debug_info    0x0000000000002f6f     0x1065 ./source/bsp_kl46/mma8451.o
- .debug_info    0x0000000000003fd4       0xda ./source/main.o
- .debug_info    0x00000000000040ae       0x53 ./source/mtb.o
- .debug_info    0x0000000000004101       0x3c ./source/semihost_hardfault.o
- .debug_info    0x000000000000413d     0x1a8b ./drivers/fsl_clock.o
- .debug_info    0x0000000000005bc8      0xf55 ./drivers/fsl_dma.o
- .debug_info    0x0000000000006b1d      0x4e5 ./drivers/fsl_dmamux.o
- .debug_info    0x0000000000007002      0x7dc ./drivers/fsl_gpio.o
- .debug_info    0x00000000000077de     0x1aba ./drivers/fsl_i2c.o
- .debug_info    0x0000000000009298     0x14ac ./drivers/fsl_lpsci.o
- .debug_info    0x000000000000a744     0x144d ./drivers/fsl_uart.o
- .debug_info    0x000000000000bb91      0xc53 ./drivers/fsl_uart_dma.o
- .debug_info    0x000000000000c7e4      0xaf2 ./board/clock_config.o
- .debug_info    0x000000000000d2d6      0x40e ./CMSIS/system_MKL46Z4.o
+ .debug_info    0x0000000000002321      0xc40 ./source/bsp_kl46/SD2_board.o
+ .debug_info    0x0000000000002f61     0x1065 ./source/bsp_kl46/mma8451.o
+ .debug_info    0x0000000000003fc6       0xda ./source/main.o
+ .debug_info    0x00000000000040a0       0x53 ./source/mtb.o
+ .debug_info    0x00000000000040f3       0x3c ./source/semihost_hardfault.o
+ .debug_info    0x000000000000412f     0x1a8b ./drivers/fsl_clock.o
+ .debug_info    0x0000000000005bba      0xf55 ./drivers/fsl_dma.o
+ .debug_info    0x0000000000006b0f      0x4e5 ./drivers/fsl_dmamux.o
+ .debug_info    0x0000000000006ff4      0x7dc ./drivers/fsl_gpio.o
+ .debug_info    0x00000000000077d0     0x1aba ./drivers/fsl_i2c.o
+ .debug_info    0x000000000000928a     0x14ac ./drivers/fsl_lpsci.o
+ .debug_info    0x000000000000a736     0x144d ./drivers/fsl_uart.o
+ .debug_info    0x000000000000bb83      0xc53 ./drivers/fsl_uart_dma.o
+ .debug_info    0x000000000000c7d6      0xaf2 ./board/clock_config.o
+ .debug_info    0x000000000000d2c8      0x40e ./CMSIS/system_MKL46Z4.o
 
-.debug_abbrev   0x0000000000000000     0x2809
+.debug_abbrev   0x0000000000000000     0x27f1
  .debug_abbrev  0x0000000000000000      0x198 ./startup/startup_mkl46z4.o
  .debug_abbrev  0x0000000000000198      0x134 ./source/fsm/fsm.o
  .debug_abbrev  0x00000000000002cc       0xf5 ./source/efHal/ringBuffer.o
  .debug_abbrev  0x00000000000003c1      0x2c4 ./source/efHal/uart_ringBufer.o
  .debug_abbrev  0x0000000000000685      0x22a ./source/bsp_kl46/SD2_I2C.o
- .debug_abbrev  0x00000000000008af      0x2fd ./source/bsp_kl46/SD2_board.o
- .debug_abbrev  0x0000000000000bac      0x2d0 ./source/bsp_kl46/mma8451.o
- .debug_abbrev  0x0000000000000e7c       0x65 ./source/main.o
- .debug_abbrev  0x0000000000000ee1       0x46 ./source/mtb.o
- .debug_abbrev  0x0000000000000f27       0x31 ./source/semihost_hardfault.o
- .debug_abbrev  0x0000000000000f58      0x34b ./drivers/fsl_clock.o
- .debug_abbrev  0x00000000000012a3      0x2bc ./drivers/fsl_dma.o
- .debug_abbrev  0x000000000000155f      0x17e ./drivers/fsl_dmamux.o
- .debug_abbrev  0x00000000000016dd      0x1f6 ./drivers/fsl_gpio.o
- .debug_abbrev  0x00000000000018d3      0x376 ./drivers/fsl_i2c.o
- .debug_abbrev  0x0000000000001c49      0x2f3 ./drivers/fsl_lpsci.o
- .debug_abbrev  0x0000000000001f3c      0x2f3 ./drivers/fsl_uart.o
- .debug_abbrev  0x000000000000222f      0x291 ./drivers/fsl_uart_dma.o
- .debug_abbrev  0x00000000000024c0      0x201 ./board/clock_config.o
- .debug_abbrev  0x00000000000026c1      0x148 ./CMSIS/system_MKL46Z4.o
+ .debug_abbrev  0x00000000000008af      0x2e5 ./source/bsp_kl46/SD2_board.o
+ .debug_abbrev  0x0000000000000b94      0x2d0 ./source/bsp_kl46/mma8451.o
+ .debug_abbrev  0x0000000000000e64       0x65 ./source/main.o
+ .debug_abbrev  0x0000000000000ec9       0x46 ./source/mtb.o
+ .debug_abbrev  0x0000000000000f0f       0x31 ./source/semihost_hardfault.o
+ .debug_abbrev  0x0000000000000f40      0x34b ./drivers/fsl_clock.o
+ .debug_abbrev  0x000000000000128b      0x2bc ./drivers/fsl_dma.o
+ .debug_abbrev  0x0000000000001547      0x17e ./drivers/fsl_dmamux.o
+ .debug_abbrev  0x00000000000016c5      0x1f6 ./drivers/fsl_gpio.o
+ .debug_abbrev  0x00000000000018bb      0x376 ./drivers/fsl_i2c.o
+ .debug_abbrev  0x0000000000001c31      0x2f3 ./drivers/fsl_lpsci.o
+ .debug_abbrev  0x0000000000001f24      0x2f3 ./drivers/fsl_uart.o
+ .debug_abbrev  0x0000000000002217      0x291 ./drivers/fsl_uart_dma.o
+ .debug_abbrev  0x00000000000024a8      0x201 ./board/clock_config.o
+ .debug_abbrev  0x00000000000026a9      0x148 ./CMSIS/system_MKL46Z4.o
 
 .debug_aranges  0x0000000000000000      0xc50
  .debug_aranges
@@ -3814,7 +3762,7 @@ LOAD linker stubs
  .debug_str     0x000000000004cea5      0x7df ./source/bsp_kl46/SD2_I2C.o
                                       0x4b34b (size before relaxing)
  .debug_str     0x000000000004d684      0x24a ./source/bsp_kl46/SD2_board.o
-                                      0x4b83d (size before relaxing)
+                                      0x4b830 (size before relaxing)
  .debug_str     0x000000000004d8ce      0x5dc ./source/bsp_kl46/mma8451.o
                                       0x4b5b2 (size before relaxing)
  .debug_str     0x000000000004deaa      0x87d ./source/main.o
@@ -4655,7 +4603,6 @@ _vsprintf                                         /usr/local/mcuxpressoide-11.7.
 board_Tx_Rx_485_Enable                            ./source/bsp_kl46/SD2_board.o
                                                   ./source/efHal/uart_ringBufer.o
 board_getSw                                       ./source/bsp_kl46/SD2_board.o
-                                                  ./source/efHal/key.o
                                                   ./source/fsm/fsm.o
 board_init                                        ./source/bsp_kl46/SD2_board.o
                                                   ./source/main.o
@@ -4694,9 +4641,6 @@ g_pfnVectors                                      ./startup/startup_mkl46z4.o
 g_xtal0Freq                                       ./drivers/fsl_clock.o
                                                   ./board/clock_config.o
 g_xtal32Freq                                      ./drivers/fsl_clock.o
-key_getPressEv                                    ./source/efHal/key.o
-key_init                                          ./source/efHal/key.o
-key_periodicTask1ms                               ./source/efHal/key.o
 ldexp                                             /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(ldexp.o)
                                                   /usr/local/mcuxpressoide-11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.linux_11.7.0.202209140929/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libcr_c.a(pow.o)
 main                                              ./source/main.o

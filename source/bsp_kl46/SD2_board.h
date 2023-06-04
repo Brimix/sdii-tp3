@@ -37,7 +37,6 @@
 
 /*==================[inclusions]=============================================*/
 #include "MKL46Z4.h"
-#include "stdbool.h"
 #include <stdbool.h>
 #include "SD2_I2C.h"
 #include "mma8451.h"

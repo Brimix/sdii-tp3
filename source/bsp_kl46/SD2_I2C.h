@@ -50,6 +50,7 @@ extern "C" {
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions definition]==========================*/
+extern void SD2_I2C_init();
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus

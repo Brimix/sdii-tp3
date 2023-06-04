@@ -32,7 +32,7 @@
  */
 
 /*==================[inclusions]=============================================*/
-#include <SD2_board.h>
+#include <bsp_kl46/SD2_board.h>
 #include "mma8451.h"
 #include "fsl_port.h"
 #include "fsl_i2c.h"

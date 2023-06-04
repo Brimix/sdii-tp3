@@ -10,7 +10,7 @@
 #include <stdbool.h>
 #include "stdint.h"
 // Project Included Files
-#include "SD2_board.h"
+#include "bsp_kl46/SD2_board.h"
 #include "fsl_uart.h"
 #include "MKL46Z4.h"
 #include "ringBuffer.h"

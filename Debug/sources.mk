@@ -17,6 +17,9 @@ SUBDIRS := \
 CMSIS \
 board \
 drivers \
+source/bsp_kl46 \
+source/efHal \
+source/fsm \
 source \
 startup \
 utilities \

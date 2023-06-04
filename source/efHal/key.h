@@ -36,7 +36,7 @@
 #define KEY_H_
 
 /*==================[inclusions]=============================================*/
-#include "SD2_board.h"
+#include "bsp_kl46/SD2_board.h"
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus

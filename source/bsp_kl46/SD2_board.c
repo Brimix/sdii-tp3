@@ -33,7 +33,7 @@
  */
 
 /*==================[inclusions]=============================================*/
-#include <SD2_board.h>
+#include <bsp_kl46/SD2_board.h>
 #include "fsl_port.h"
 #include "fsl_gpio.h"
 #include "fsl_clock.h"

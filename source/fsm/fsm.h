@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
+
 #include "pin_mux.h"
 #include "MKL46Z4.h"
-#include "uart_ringBuffer.h"
-#include "SD2_board.h"
-#include "mma8451.h"
+#include "efHal/uart_ringBuffer.h"
+#include "bsp_kl46/SD2_board.h"
+#include "bsp_kl46/mma8451.h"
 
 
 #define MAX_REC		8

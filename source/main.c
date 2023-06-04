@@ -1,11 +1,11 @@
-#include <MEF.h>
+#include <fsm/fsm.h>
 #include <stdio.h>
 #include "board.h"
 #include "clock_config.h"
 #include "MKL46Z4.h"
-#include "SD2_board.h"
-#include "mma8451.h"
-#include "uart_ringBuffer.h"
+#include "bsp_kl46/SD2_board.h"
+#include "bsp_kl46/mma8451.h"
+#include "efHal/uart_ringBuffer.h"
 
 
 int main(void){

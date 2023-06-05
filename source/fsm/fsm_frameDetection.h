@@ -49,6 +49,8 @@ extern "C" {
 #define MAX_FRAME_SIZE		8
 #define BYTE_START 			':'
 #define BYTE_FIN			0x0A
+#define CHAR_END			'\0'
+#define TEAM_ID				":16"
 
 /*==================[typedef]================================================*/
 typedef enum {
@@ -62,7 +64,7 @@ typedef enum {
 void fsm_frameDetection_reset();
 void fsm_frameDetection_init();
 void fsm_frameDetection_execute();
-void fsm_frameDetection_handle();
+
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
 }

@@ -21,9 +21,7 @@ typedef union {
 } FrameData_t;
 
 uint8_t* get_bufferEnv();
-bool isFrameRecieved();
 
-void storeReceivedFrame();
-bool processFrame();
+bool processFrame(char *bufferRec, int length);
 
 #endif

@@ -155,6 +155,23 @@ static uint8_t mma8451_read_reg(uint8_t addr)
 	return ret;
 }
 
+void mma8451_read_reg_batch(uint8_t addr, uint8_t *buff, uint8_t size)
+{
+	i2c_master_transfer_t masterXfer;
+
+	memset(&masterXfer, 0, sizeof(masterXfer));
+	masterXfer.slaveAddress = MMA8451_I2C_ADDRESS;
+	masterXfer.direction = kI2C_Read;
+	masterXfer.subaddress = addr;
+	masterXfer.subaddressSize = 1;
+	masterXfer.data = buff;
+	masterXfer.dataSize = size;
+	masterXfer.flags = kI2C_TransferDefaultFlag;
+
+	I2C_MasterTransferBlocking(I2C0, &masterXfer);
+
+}
+
 static void mma8451_write_reg(uint8_t addr, uint8_t data)
 {
 	i2c_master_transfer_t masterXfer;
@@ -290,40 +307,38 @@ int16_t mma8451_getAcZ(void)
 	return (int16_t)(((int32_t)readZ * 100) / (int32_t)4096);
 }
 
+static void readAccelerationFromRegisters(void) {
+	uint8_t bufAcc[6];
+	int16_t readG;
 
+	mma8451_read_reg_batch(0x01, bufAcc, sizeof(bufAcc));
+
+	readG   = (int16_t)bufAcc[0] << 8;
+	readG  |= (int16_t)bufAcc[1];
+	readX = readG >> 2;
+
+
+	readG   = (int16_t)bufAcc[2] << 8;
+	readG  |= (int16_t)bufAcc[3];
+	readY = readG >> 2;
+
+
+	readG   = (int16_t)bufAcc[4] << 8;
+	readG  |= (int16_t)bufAcc[5];
+	readZ = readG >> 2;
+}
 
 void PORTC_PORTD_IRQHandler(void)
 {
-    int16_t readG;
+
     INT_SOURCE_t intSource;
-    STATUS_t status;
+
 
     intSource.data = mma8451_read_reg(INT_SOURCE_ADDRESS);
 
     if (intSource.SRC_DRDY)
     {
-    	status.data = mma8451_read_reg(STATUS_ADDRESS);
-
-        if (status.XDR)
-        {
-            readG   = (int16_t)mma8451_read_reg(0x01)<<8;
-            readG  |= mma8451_read_reg(0x02);
-            readX = readG >> 2;
-        }
-
-        if (status.YDR)
-        {
-            readG   = (int16_t)mma8451_read_reg(0x03)<<8;
-            readG  |= mma8451_read_reg(0x04);
-            readY = readG >> 2;
-        }
-
-        if (status.ZDR)
-        {
-            readG   = (int16_t)mma8451_read_reg(0x05)<<8;
-            readG  |= mma8451_read_reg(0x06);
-            readZ = readG >> 2;
-        }
+    	readAccelerationFromRegisters();
     }
 
     PORT_ClearPinsInterruptFlags(INT1_PORT, 1<<INT1_PIN);

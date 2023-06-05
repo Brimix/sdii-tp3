@@ -66,27 +66,27 @@ void LEDS() { //cuando se detecta accion sobre LED
 			}
 			break;
 	}
-	sprintf((char*)bufferEnv, "%s\n",receivedFrame);
+	sprintf((char*)bufferEnv, "%s\n",receivedFrame.data);
 }
 
 void SWITCH() { //cuando se detecta lectura SW
 	switch (receivedFrame.actionCode[0]) {
 		case '1':
 			if (board_getSw(BOARD_SW_ID_1)) {
-				sprintf((char*)bufferEnv, "%sP\n",receivedFrame);
+				sprintf((char*)bufferEnv, "%sP\n",receivedFrame.data);
 				responseReady=1;
 			} else {
-				sprintf((char*)bufferEnv, "%sN\n",receivedFrame);
+				sprintf((char*)bufferEnv, "%sN\n",receivedFrame.data);
 				responseReady=1;
 			}
 			break;
 
 		case '3':
 			if (board_getSw(BOARD_SW_ID_3)) {
-				sprintf((char*)bufferEnv, "%sP\n",receivedFrame);
+				sprintf((char*)bufferEnv, "%sP\n",receivedFrame.data);
 				responseReady=1;
 			} else {
-				sprintf((char*)bufferEnv, "%sN\n",receivedFrame);
+				sprintf((char*)bufferEnv, "%sN\n",receivedFrame.data);
 				responseReady=1;
 			}
 			break;
@@ -97,7 +97,7 @@ void ACELEROM() { //cuando se detecta medicion de la aceleracion
 	if(receivedFrame.actionCode[0] == '0') {
 		int16_t acc;
 		acc = sqrt(pow(mma8451_getAcX(),2)+pow(mma8451_getAcY(),2)+pow(mma8451_getAcZ(),2));
-		sprintf((char*)bufferEnv, "%s%d\n",receivedFrame,acc);
+		sprintf((char*)bufferEnv, "%s%d\n",receivedFrame.data,acc);
 		responseReady = 1;
 	}
 }

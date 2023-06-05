@@ -1,3 +1,5 @@
 *.launch
+
+Debug
 Debug/
 Debug/*

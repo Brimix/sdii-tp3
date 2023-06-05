@@ -83,6 +83,10 @@ void board_init(void)
 		.pinDirection = kGPIO_DigitalInput,
 		.outputLogic = 0U
 	};
+	gpio_pin_config_t gpio_oled_config = {
+		.outputLogic = 0,
+		.pinDirection = kGPIO_DigitalOutput,
+	};
 
 	const port_pin_config_t port_led_config = {
 			/* Internal pull-up/down resistor is disabled */
@@ -107,6 +111,19 @@ void board_init(void)
 		/* Low drive strength is configured */
 		.driveStrength = kPORT_LowDriveStrength,
 		/* Pin is configured as PTC3 */
+		.mux = kPORT_MuxAsGpio,
+	};
+
+	const port_pin_config_t port_oled_config = {
+		/* Internal pull-up/down resistor is disabled */
+		.pullSelect = kPORT_PullDisable,
+		/* Fast slew rate is configured */
+		.slewRate = kPORT_FastSlewRate,
+		/* Passive filter is disabled */
+		.passiveFilterEnable = kPORT_PassiveFilterDisable,
+		/* Low drive strength is configured */
+		.driveStrength = kPORT_LowDriveStrength,
+		/* Pin is configured as GPIO */
 		.mux = kPORT_MuxAsGpio,
 	};
 
@@ -160,6 +177,12 @@ void board_init(void)
 	{
 		PORT_SetPinConfig(board_gpioSw[i].port, board_gpioSw[i].pin, &port_sw_config);
 		GPIO_PinInit(board_gpioSw[i].gpio, board_gpioSw[i].pin, &gpio_sw_config);
+	}
+
+	/*Inicialización de los pines GPIO necesarios para manejar el display OLED*/
+	for (i = 0 ; i < OLED_TOTAL ; i++){
+		PORT_SetPinConfig(board_gpioOled[i].port, board_gpioOled[i].pin, &port_oled_config);
+		GPIO_PinInit(board_gpioOled[i].gpio, board_gpioOled[i].pin, &gpio_oled_config);
 	}
 
 	/* =========== I2C =================== */

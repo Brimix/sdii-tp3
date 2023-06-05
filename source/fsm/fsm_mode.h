@@ -8,7 +8,11 @@
 
 #define GET_SW1				key_getPressEv(BOARD_SW_ID_1);
 
-#define DISPLAY_PUT(x)		oled_putString(56, 29, (uint8_t *)x, OLED_COLOR_WHITE, OLED_COLOR_BLACK);
+#define DISPLAY_PUT(x)		oled_putString(15, 29, (uint8_t *)x, OLED_COLOR_WHITE, OLED_COLOR_BLACK);
+#define DISPLAY_OFF			oled_clearScreen(OLED_COLOR_BLACK);
+
+#define REQUEST_DATA_MSG	"Mode: Request data"
+#define PLOT_3D_MSG			"Mode: Plot 3D"
 
 typedef enum {
 	REQUEST_DATA = 0,

@@ -1,5 +1,4 @@
 #include <fsm/fsm_frameDetection.h>
-#include <fsm/handleFrame.h>
 #include <stdio.h>
 #include "board.h"
 #include "clock_config.h"
@@ -18,7 +17,7 @@ int main(void){
     while(1)
     {
     	fsm_frameDetection_execute();
-    	handleFrame();
+
     }
 }
 

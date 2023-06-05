@@ -60,7 +60,7 @@ typedef enum {
 
 /*==================[external functions definition]==========================*/
 void fsm_frameDetection_execute();
-
+void fsm_frameDetection_handle();
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
 }

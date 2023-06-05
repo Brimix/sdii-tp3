@@ -94,10 +94,15 @@ void SWITCH() { //cuando se detecta lectura SW
 }
 
 void ACELEROM() { //cuando se detecta medicion de la aceleracion
-	if(receivedFrame.actionCode[0] == '0') {
-		int16_t acc;
-		acc = sqrt(pow(mma8451_getAcX(),2)+pow(mma8451_getAcY(),2)+pow(mma8451_getAcZ(),2));
-		sprintf((char*)bufferEnv, "%s%d\n",receivedFrame.data,acc);
+	if(receivedFrame.actionCode[0] == '1') {
+
+		int32_t accX,accY,accZ;
+		accX= mma8451_getAcX();
+		accY= mma8451_getAcY();
+		accZ= mma8451_getAcZ();
+
+
+		sprintf((char*)bufferEnv, "%s%+04d%+04d%+04d\n",receivedFrame.data,(int)accX,(int)accY,(int)accZ);
 		responseReady = 1;
 	}
 }

@@ -19,7 +19,7 @@ int main(void){
     while(1)
     {
     	fsm_frameDetection_execute();
-    	mef_procesar_trama();
+    	// mef_procesar_trama();
     }
 }
 

@@ -1,5 +1,10 @@
 #include "fsm_mode.h"
 
+void fsm_mode_init() {
+	oled_init();
+	oled_setContrast(16);
+}
+
 void fsm_mode_execute() {
 	static fsm_modeState state = REQUEST_DATA;
 
@@ -12,7 +17,8 @@ void fsm_mode_execute() {
 			if (shouldChangeState) {
 				// do stuff...
 				state = PLOT_3D;
-//				printf("Changed state to %d\n", state);
+				DISPLAY_PUT("Open3D");
+				printf("Changed state to %d\n", state);
 			}
 			break;
 
@@ -20,8 +26,9 @@ void fsm_mode_execute() {
 			// TODO: Implement new FSM for 3d plotting
 			if (shouldChangeState) {
 				// do stuff...
+				DISPLAY_PUT("Ctrl");
 				state = REQUEST_DATA;
-//				printf("Changed state to %d\n", state);
+				printf("Changed state to %d\n", state);
 			}
 			break;
 	}

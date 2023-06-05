@@ -1,8 +1,11 @@
-/* Copyright 2017, DSI FCEIA UNR - Sistemas Digitales 2
+/*****************************************************************************
+ *   oled.h:  Header file for SSD1306 OLED Display
+ *
+ *   Copyright 2009, Embedded Artists AB
+ *   Copyright 2023, DSI FCEIA UNR - Sistemas Digitales 2
  *    DSI: http://www.dsi.fceia.unr.edu.ar/
- * Copyright 2017, Diego Alegrechi
- * Copyright 2017, Gustavo Muro
- * All rights reserved.
+ *   Copyright 2023, Guido Cicconi
+ *   All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -31,15 +34,11 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  */
-
-#ifndef SD2_BOARD_H_
-#define SD2_BOARD_H_
+#ifndef __OLED_H
+#define __OLED_H
 
 /*==================[inclusions]=============================================*/
-#include "MKL46Z4.h"
-#include <stdbool.h>
-#include "SD2_I2C.h"
-#include "mma8451.h"
+#include <stdint.h>
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
@@ -47,101 +46,35 @@ extern "C" {
 #endif
 
 /*==================[macros]=================================================*/
-
 typedef enum
 {
-    BOARD_LED_ID_ROJO = 0,
-    BOARD_LED_ID_VERDE,
-    BOARD_LED_ID_TOTAL
+    OLED_COLOR_BLACK,
+    OLED_COLOR_WHITE
+} oled_color_t;
 
-}board_ledId_enum;
-
-typedef enum
-{
-    Rx,
-	Tx
-}board_RxTx_enum;
-
-typedef enum
-{
-    BOARD_SW_ID_1 = 0,
-    BOARD_SW_ID_3,
-    BOARD_SW_ID_TOTAL
-}board_swId_enum;
-
-typedef enum
-{
-    BOARD_LED_MSG_OFF = 0,
-    BOARD_LED_MSG_ON,
-    BOARD_LED_MSG_TOGGLE
-}board_ledMsg_enum;
-
-typedef struct
-{
-    PORT_Type *port;
-    GPIO_Type *gpio;
-    uint32_t pin;
-}board_gpioInfo_type;
-
-typedef enum
-{
-	OLED_RST_PIN = 0,
-    OLED_DATA_CMD_PIN,
-	OLED_TOTAL
-}board_oledPin_enum;
-
-
-#define SPI_MASTER              SPI0
-#define SPI_MASTER_SOURCE_CLOCK kCLOCK_BusClk
-#define SPI_MASTER_CLK_FREQ     CLOCK_GetFreq(kCLOCK_BusClk)
+#define OLED_DISPLAY_WIDTH  128
+#define OLED_DISPLAY_HEIGHT 64
 
 /*==================[typedef]================================================*/
 
 /*==================[external data declaration]==============================*/
-#define SOPT5_UART1RXSRC_UART_RX 0x00u /*!<@brief UART1 Receive Data Source Select: UART1_RX pin */
-#define SOPT5_UART1TXSRC_UART_TX 0x00u /*!<@brief UART1 Transmit Data Source Select: UART1_TX pin */
+
 /*==================[external functions definition]==========================*/
 
-/** \brief inicializaci�n del hardware
- **
- **/
-void board_init(void);
-
-/** \brief setea estado del led indicado
- **
- **/
-
-void board_Tx_Rx_485_Enable(board_RxTx_enum dato);
-
-void board_setLed(board_ledId_enum id, board_ledMsg_enum msg);
-
-/** \brief Devuelve estado del pulsador indicado
- **
- ** \return true: si el pulsdor est� apretado
- **         false: si el pulsador no est� apretado
- **/
-bool board_getSw(board_swId_enum id);
-
-
-/** \brief Inicializa el SPI0
- **
- **/
-void board_configSPI0();
-
-/** \Envia un dato por SPI
- **
- **/
-void board_SPISend(uint8_t* buf, size_t len);
-
-/** \Setea al valor indicado el pin del OLED indicado
- **
- **/
-void board_setOledPin(board_oledPin_enum oledPin, uint8_t state);
+void oled_init (void);
+void oled_putPixel(uint8_t x, uint8_t y, oled_color_t color);
+void oled_line(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, oled_color_t color);
+void oled_circle(uint8_t x0, uint8_t y0, uint8_t r, oled_color_t color);
+void oled_rect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, oled_color_t color);
+void oled_fillRect(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, oled_color_t color);
+void oled_clearScreen(oled_color_t color);
+void oled_putString(uint8_t x, uint8_t y, uint8_t *pStr, oled_color_t fb, oled_color_t bg);
+uint8_t oled_putChar(uint8_t x, uint8_t y, uint8_t ch, oled_color_t fb, oled_color_t bg);
+void oled_setContrast(uint8_t contrast);
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
 }
 #endif
 
-/*==================[end of file]============================================*/
-#endif /* SD2_BOARD_H_ */
+#endif /* end __OLED_H */

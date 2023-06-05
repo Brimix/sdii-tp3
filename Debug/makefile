@@ -11,6 +11,7 @@ RM := rm -rf
 -include utilities/subdir.mk
 -include startup/subdir.mk
 -include source/fsm/subdir.mk
+-include source/efHal/display/subdir.mk
 -include source/efHal/subdir.mk
 -include source/bsp_kl46/subdir.mk
 -include source/subdir.mk

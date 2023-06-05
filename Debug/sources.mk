@@ -18,6 +18,7 @@ CMSIS \
 board \
 drivers \
 source/bsp_kl46 \
+source/efHal/display \
 source/efHal \
 source/fsm \
 source \

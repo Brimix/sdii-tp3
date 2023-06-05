@@ -3,9 +3,9 @@
 const char* TEAM_ID = ":16";
 
 void processFrame(char* frame, int size) {
-	bool matchesMyPattern = (size >= strlen(TEAM_ID)) && strncmp(TEAM_ID, frame, strlen(TEAM_ID));
+	bool matchesMyPattern = (size >= strlen(TEAM_ID)) && strncmp(TEAM_ID, frame, strlen(TEAM_ID))==0;
 	if (!matchesMyPattern) {
-		printf("Frame is not for me!\nDiscarding frame...");
+		printf("Frame is not for me!\nDiscarding frame...\n");
 		return;
 	}
 	procesar_trama(frame, size);
@@ -15,6 +15,7 @@ void fsm_frameDetection_execute() {
     static fsm_frameDetectionState state = AWAITING;
     static char frame[MAX_FRAME_SIZE];
     static int size = 0;
+    int i=0;
 
     uint8_t byteReceived;
     uint32_t bytesReceivedCount = uart_ringBuffer_recDatos(&byteReceived, sizeof(byteReceived));
@@ -31,10 +32,18 @@ void fsm_frameDetection_execute() {
 			if (bytesReceivedCount) {
 				switch (byteReceived) {
 					case BYTE_FIN:
+
 						printf("Detected frame: %s\n", frame);
 						processFrame(frame, size);
 						size = 0;
 						state = AWAITING;
+
+						i=0;
+						while (i <= MAX_FRAME_SIZE){
+						frame[i]=0;
+						i++;
+						}
+
 						break;
 
 					case BYTE_START:

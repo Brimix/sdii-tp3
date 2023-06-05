@@ -32,14 +32,11 @@
  *
  */
 
-#ifndef SD2_BOARD_H_
-#define SD2_BOARD_H_
+#ifndef KEY_H_
+#define KEY_H_
 
 /*==================[inclusions]=============================================*/
-#include "MKL46Z4.h"
-#include <stdbool.h>
-#include "SD2_I2C.h"
-#include "mma8451.h"
+#include "SD2_board.h"
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
@@ -48,95 +45,14 @@ extern "C" {
 
 /*==================[macros]=================================================*/
 
-typedef enum
-{
-    BOARD_LED_ID_ROJO = 0,
-    BOARD_LED_ID_VERDE,
-    BOARD_LED_ID_TOTAL
-
-}board_ledId_enum;
-
-typedef enum
-{
-    Rx,
-	Tx
-}board_RxTx_enum;
-
-typedef enum
-{
-    BOARD_SW_ID_1 = 0,
-    BOARD_SW_ID_3,
-    BOARD_SW_ID_TOTAL
-}board_swId_enum;
-
-typedef enum
-{
-    BOARD_LED_MSG_OFF = 0,
-    BOARD_LED_MSG_ON,
-    BOARD_LED_MSG_TOGGLE
-}board_ledMsg_enum;
-
-typedef struct
-{
-    PORT_Type *port;
-    GPIO_Type *gpio;
-    uint32_t pin;
-}board_gpioInfo_type;
-
-typedef enum
-{
-	OLED_RST_PIN = 0,
-    OLED_DATA_CMD_PIN,
-	OLED_TOTAL
-}board_oledPin_enum;
-
-
-#define SPI_MASTER              SPI0
-#define SPI_MASTER_SOURCE_CLOCK kCLOCK_BusClk
-#define SPI_MASTER_CLK_FREQ     CLOCK_GetFreq(kCLOCK_BusClk)
-
 /*==================[typedef]================================================*/
 
 /*==================[external data declaration]==============================*/
-#define SOPT5_UART1RXSRC_UART_RX 0x00u /*!<@brief UART1 Receive Data Source Select: UART1_RX pin */
-#define SOPT5_UART1TXSRC_UART_TX 0x00u /*!<@brief UART1 Transmit Data Source Select: UART1_TX pin */
+
 /*==================[external functions definition]==========================*/
-
-/** \brief inicializaci�n del hardware
- **
- **/
-void board_init(void);
-
-/** \brief setea estado del led indicado
- **
- **/
-
-void board_Tx_Rx_485_Enable(board_RxTx_enum dato);
-
-void board_setLed(board_ledId_enum id, board_ledMsg_enum msg);
-
-/** \brief Devuelve estado del pulsador indicado
- **
- ** \return true: si el pulsdor est� apretado
- **         false: si el pulsador no est� apretado
- **/
-bool board_getSw(board_swId_enum id);
-
-
-/** \brief Inicializa el SPI0
- **
- **/
-void board_configSPI0();
-
-/** \Envia un dato por SPI
- **
- **/
-void board_SPISend(uint8_t* buf, size_t len);
-
-/** \Setea al valor indicado el pin del OLED indicado
- **
- **/
-void board_setOledPin(board_oledPin_enum oledPin, uint8_t state);
+void key_init(void);
+bool key_getPressEv(board_swId_enum id);
+void key_periodicTask1ms(void);
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
@@ -144,4 +60,4 @@ void board_setOledPin(board_oledPin_enum oledPin, uint8_t state);
 #endif
 
 /*==================[end of file]============================================*/
-#endif /* SD2_BOARD_H_ */
+#endif /* KEY_H_ */

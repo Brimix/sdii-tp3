@@ -1,4 +1,4 @@
-#include <fsm/fsm_frameDetection.h>
+#include <fsm/fsm_mode.h>
 #include <stdio.h>
 #include "board.h"
 #include "clock_config.h"
@@ -14,10 +14,21 @@ int main(void){
 	board_init(); //Config inicial de SW, LEDS, clock a los puertos, config de I2C, config mma8451
 	mma8451_setDataRate(DR_12p5hz);
 	uart_ringBuffer_init(); // Inicialización UART1, DMA, creación de Cola Circular
+	board_configSPI0();
+	key_init();
+	fsm_mode_init();
+
+	/* Inicializa interrupción de systick cada 1 ms */
+	SysTick_Config(SystemCoreClock / 1000U);
+
     while(1)
     {
-    	fsm_frameDetection_execute();
-
+//    	fsm_frameDetection_execute();
+    	fsm_mode_execute();
     }
+}
+
+void SysTick_Handler(void) {
+	key_periodicTask1ms();
 }
 

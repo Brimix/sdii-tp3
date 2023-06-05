@@ -2,13 +2,13 @@
 
 const char* TEAM_ID = ":16";
 
-void processFrame(char* frame, int size) {
+void receiveFrame(char* frame, int size) {
 	bool matchesMyPattern = (size >= strlen(TEAM_ID)) && strncmp(TEAM_ID, frame, strlen(TEAM_ID))==0;
 	if (!matchesMyPattern) {
 		printf("Frame is not for me!\nDiscarding frame...\n");
 		return;
 	}
-	procesar_trama(frame, size);
+	storeReceivedFrame(frame, size);
 }
 
 void fsm_frameDetection_execute() {
@@ -34,7 +34,7 @@ void fsm_frameDetection_execute() {
 					case BYTE_FIN:
 
 						printf("Detected frame: %s\n", frame);
-						processFrame(frame, size);
+						receiveFrame(frame, size);
 						size = 0;
 						state = AWAITING;
 

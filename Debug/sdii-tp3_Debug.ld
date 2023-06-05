@@ -6,7 +6,7 @@
  * Generated linker script file for MKL46Z256xxx4
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.4.0 [Build 6237] [2021-08-06] on Jun 5, 2023, 1:29:11 AM
+ * MCUXpresso IDE v11.7.0 [Build 9198] [2023-01-17] on Jun 5, 2023, 1:58:46 AM
  */
 
 INCLUDE "sdii-tp3_Debug_library.ld"
@@ -47,10 +47,6 @@ SECTIONS
         ASSERT(!(__FLASH_CONFIG_START__ == __FLASH_CONFIG_END__), "Linker Flash Config Support Enabled, but no .FlashConfig section provided within application");
         /* End of Kinetis Flash Configuration data */
         
-    } > PROGRAM_FLASH
-
-    .text : ALIGN(4)
-    {
        *(.text*)
        *(.rodata .rodata.* .constdata .constdata.*)
        . = ALIGN(4);
@@ -142,7 +138,7 @@ SECTIONS
 
     /* Reserve and place Heap within memory map */
     _HeapSize = 0x800;
-    .heap :  ALIGN(4)
+    .heap (NOLOAD) :  ALIGN(4)
     {
         _pvHeapStart = .;
         . += _HeapSize;
@@ -152,12 +148,12 @@ SECTIONS
 
      _StackSize = 0x800;
      /* Reserve space in memory for Stack */
-    .heap2stackfill  :
+    .heap2stackfill (NOLOAD) :
     {
         . += _StackSize;
     } > SRAM
     /* Locate actual Stack in memory map */
-    .stack ORIGIN(SRAM) + LENGTH(SRAM) - _StackSize - 0:  ALIGN(4)
+    .stack ORIGIN(SRAM) + LENGTH(SRAM) - _StackSize - 0 (NOLOAD) :  ALIGN(4)
     {
         _vStackBase = .;
         . = ALIGN(4);

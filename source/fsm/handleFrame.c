@@ -6,7 +6,7 @@ void handleFrame() {
 		printf("Frame received! Started processing...\n");
 
 		bool isSuccessfulProcess = processFrame();
-		printf("Processing finished. ")
+		printf("Processing finished. ");
 		if (isSuccessfulProcess) {
 			printf("Sending data...\n");
 			uart_dma_envDatos(get_bufferEnv(), strlen((char*)get_bufferEnv()));

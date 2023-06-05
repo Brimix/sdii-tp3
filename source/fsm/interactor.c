@@ -20,7 +20,7 @@ bool isFrameRecieved() {
 	return false;
 }
 
-void storeRecievedFrame(char *bufferRec, int length) {
+void storeReceivedFrame(char *bufferRec, int length) {
 	frameRecieved = true;
 	strcpy(receivedFrame.data, bufferRec);
 	receivedFrame.data[length] = '\0';

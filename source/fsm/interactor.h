@@ -23,7 +23,7 @@ typedef union {
 uint8_t* get_bufferEnv();
 bool isFrameRecieved();
 
-void storeRecievedFrame();
-void processFrame();
+void storeReceivedFrame();
+bool processFrame();
 
 #endif

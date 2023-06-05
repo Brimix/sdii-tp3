@@ -5,7 +5,7 @@ const char* TEAM_ID = ":16";
 void receiveFrame(char* frame, int size) {
 	bool matchesMyPattern = (size >= strlen(TEAM_ID)) && strncmp(TEAM_ID, frame, strlen(TEAM_ID))==0;
 	if (!matchesMyPattern) {
-		printf("Frame is not for me!\nDiscarding frame...\n");
+		//printf("Frame is not for me!\nDiscarding frame...\n");
 	}else{
 	storeReceivedFrame(frame, size);
 	fsm_frameDetection_handle();
@@ -34,7 +34,7 @@ void fsm_frameDetection_execute() {
 				switch (byteReceived) {
 					case BYTE_FIN:
 
-						printf("Detected frame: %s\n", frame);
+						//printf("Detected frame: %s\n", frame);
 						receiveFrame(frame, size);
 						size = 0;
 						state = AWAITING;
@@ -50,7 +50,7 @@ void fsm_frameDetection_execute() {
 
 					default:
 						if (size >= MAX_FRAME_SIZE) { // Se excedió la cantidad de bytes recibidos, por lo que dejamos de recibir
-							printf("Detected frame exceeded buffer size!\nDiscarding frame...");
+							//printf("Detected frame exceeded buffer size!\nDiscarding frame...");
 							size = 0;
 							state = AWAITING;
 						} else {
@@ -66,12 +66,12 @@ void fsm_frameDetection_execute() {
 void fsm_frameDetection_handle() {
 	bool shouldProcess = isFrameRecieved();
 	if (shouldProcess) {
-		printf("Frame received! Started processing...\n");
+		//printf("Frame received! Started processing...\n");
 
 		bool isSuccessfulProcess = processFrame();
-		printf("Processing finished. ");
+		//printf("Processing finished. ");
 		if (isSuccessfulProcess) {
-			printf("Sending data...\n");
+			//printf("Sending data...\n");
 			uart_dma_envDatos(get_bufferEnv(), strlen((char*)get_bufferEnv()));
 		} else {
 			printf("Frame unrecognized\n");

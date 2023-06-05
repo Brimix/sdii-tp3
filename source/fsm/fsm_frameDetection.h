@@ -37,8 +37,8 @@
 #define FSM_FRAMEDETECTION_H_
 
 /*==================[inclusions]=============================================*/
-#include "efHal/uart_ringBuffer.h"
-#include "fsm.h"
+#include <MKL46Z4.h>
+#include "interactor.h"
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
@@ -60,7 +60,7 @@ typedef enum {
 
 /*==================[external functions definition]==========================*/
 void fsm_frameDetection_execute();
-
+void fsm_frameDetection_handle();
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
 }

@@ -1,6 +1,4 @@
-#include <MKL46Z4.h>
 #include "fsm_frameDetection.h"
-#include "fsm.h"
 
 static char frame[MAX_FRAME_SIZE];
 
@@ -66,7 +64,7 @@ void fsm_frameDetection_execute() {
 					index++;
 				}
 				else if (recievedByte == BYTE_FIN) {
-					procesar_trama(frame,index);
+					storeRecievedFrame(frame,index);
 					index = 0;
 					state = MEF_DETECTAR_ESPERANDO;
 				}

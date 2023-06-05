@@ -37,7 +37,8 @@
 #define FSM_FRAMEDETECTION_H_
 
 /*==================[inclusions]=============================================*/
-
+#include <MKL46Z4.h>
+#include "interactor.h"
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus

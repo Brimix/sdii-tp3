@@ -37,7 +37,8 @@
 #define FSM_FRAMEDETECTION_H_
 
 /*==================[inclusions]=============================================*/
-
+#include "efHal/uart_ringBuffer.h"
+#include "fsm.h"
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
@@ -46,14 +47,13 @@ extern "C" {
 
 /*==================[macros]=================================================*/
 #define MAX_FRAME_SIZE		8
+#define BYTE_START 			':'
 #define BYTE_FIN			0x0A
 
 /*==================[typedef]================================================*/
 typedef enum {
-	MEF_DETECTAR_ESPERANDO = 0,
-	MEF_DETECTAR_1,
-	MEF_DETECTAR_6,
-	MEF_DETECTAR_RESTO,
+	AWAITING = 0,
+	RECEIVING,
 } fsm_frameDetectionState;
 
 /*==================[external data declaration]==============================*/

@@ -1,74 +1,55 @@
-#include <MKL46Z4.h>
 #include "fsm_frameDetection.h"
-#include "fsm.h"
 
-static char frame[MAX_FRAME_SIZE];
+const char* TEAM_ID = ":16";
+
+void processFrame(char* frame, int size) {
+	bool matchesMyPattern = (size >= strlen(TEAM_ID)) && strncmp(TEAM_ID, frame, strlen(TEAM_ID));
+	if (!matchesMyPattern) {
+		printf("Frame is not for me!\nDiscarding frame...");
+		return;
+	}
+	procesar_trama(frame, size);
+}
 
 void fsm_frameDetection_execute() {
-    static fsm_frameDetectionState state = MEF_DETECTAR_ESPERANDO;
+    static fsm_frameDetectionState state = AWAITING;
+    static char frame[MAX_FRAME_SIZE];
+    static int size = 0;
 
-    // TOOO: Change variable name once we understand exactly how it works
-    uint32_t isFrameDetected;
-    uint8_t recievedByte;
-    static uint8_t index = 0;
-
-    isFrameDetected = uart_ringBuffer_recDatos(&recievedByte, sizeof(recievedByte));
+    uint8_t byteReceived;
+    uint32_t bytesReceivedCount = uart_ringBuffer_recDatos(&byteReceived, sizeof(byteReceived));
 
     switch (state) {
-    	case MEF_DETECTAR_ESPERANDO:
-    		if(isFrameDetected != 0) {
-    			if (recievedByte == ':') {
-    				frame[index] = recievedByte;
-    				index++;
-    				state = MEF_DETECTAR_1;
-    			}
+    	case AWAITING:
+    		if (bytesReceivedCount && byteReceived == BYTE_START) {
+    			frame[size++] = byteReceived;
+				state = RECEIVING;
     		}
     		break;
-    	case MEF_DETECTAR_1:
-			if(isFrameDetected != 0){
-				if (recievedByte == '1'){
-					frame[index] = recievedByte;
-					index++;
-					state = MEF_DETECTAR_6;}
-				else if (recievedByte != '1'){
-					index=0;
-					state = MEF_DETECTAR_ESPERANDO;
-				}
-			}
-			break;
-    	case MEF_DETECTAR_6:
-    		if(isFrameDetected != 0) {
-    			if (recievedByte == '6') {
-    				frame[index] = recievedByte;
-    				index++;
-    				state = MEF_DETECTAR_RESTO;
-    			}
-				else if (recievedByte != '6') {
-					index = 0;
-					state = MEF_DETECTAR_ESPERANDO;
-				}
-    		}
-    		break;
-    	case MEF_DETECTAR_RESTO:
-			if (index >= MAX_FRAME_SIZE) { // Se excedió la cantidad de bytes recibidos, por lo que dejamos de recibir
-				index = 0;
-				state = MEF_DETECTAR_ESPERANDO;
-			}
-			if (isFrameDetected != 0) {
-				if (recievedByte == ':') {
-					index = 0;
-					frame[index] = recievedByte;
-					index++;
-					state = MEF_DETECTAR_1;
-				}
-				else if(recievedByte != BYTE_FIN) {
-					frame[index] = recievedByte;
-					index++;
-				}
-				else if (recievedByte == BYTE_FIN) {
-					procesar_trama(frame,index);
-					index = 0;
-					state = MEF_DETECTAR_ESPERANDO;
+
+    	case RECEIVING:
+			if (bytesReceivedCount) {
+				switch (byteReceived) {
+					case BYTE_FIN:
+						printf("Detected frame: %s\n", frame);
+						processFrame(frame, size);
+						size = 0;
+						state = AWAITING;
+						break;
+
+					case BYTE_START:
+						size = 0;
+						frame[size++] = byteReceived;
+						break;
+
+					default:
+						if (size >= MAX_FRAME_SIZE) { // Se excedió la cantidad de bytes recibidos, por lo que dejamos de recibir
+							printf("Detected frame exceeded buffer size!\nDiscarding frame...");
+							size = 0;
+							state = AWAITING;
+						} else {
+							frame[size++] = byteReceived;
+						}
 				}
 			}
 			break;

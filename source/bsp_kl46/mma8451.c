@@ -133,6 +133,7 @@ typedef union
 
 /*==================[internal data declaration]==============================*/
 
+static bool dataReadyFlag = false;
 static int16_t readX, readY, readZ;
 
 /*==================[internal functions declaration]=========================*/
@@ -188,12 +189,6 @@ static void mma8451_write_reg(uint8_t addr, uint8_t data)
 
     I2C_MasterTransferBlocking(I2C0, &masterXfer);
 }
-
-/*==================[internal data definition]===============================*/
-
-/*==================[external data definition]===============================*/
-
-/*==================[internal functions definition]==========================*/
 
 static void config_port_int1(void)
 {
@@ -292,6 +287,15 @@ void mma8451_setDataRate(DR_enum rate)
 
 }
 
+bool mma8451_isDataReady(void)
+{
+	if (dataReadyFlag) {
+		dataReadyFlag = false;
+		return true;
+	}
+	return false;
+}
+
 int16_t mma8451_getAcX(void)
 {
 	return (int16_t)(((int32_t)readX * 100) / (int32_t)4096);
@@ -326,6 +330,8 @@ static void readAccelerationFromRegisters(void) {
 	readG   = (int16_t)bufAcc[4] << 8;
 	readG  |= (int16_t)bufAcc[5];
 	readZ = readG >> 2;
+
+	dataReadyFlag = true;
 }
 
 void PORTC_PORTD_IRQHandler(void)

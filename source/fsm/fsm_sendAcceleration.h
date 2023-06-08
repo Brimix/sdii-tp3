@@ -1,6 +1,6 @@
 /* Copyright 2017, DSI FCEIA UNR - Sistemas Digitales 2
  *    DSI: http://www.dsi.fceia.unr.edu.ar/
- * Copyright 2023, Brian Morris
+ * Copyright 2023, Brian Morris, Tomas Gonzalez
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -57,6 +57,8 @@ typedef enum {
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions definition]==========================*/
+void fsm_sendAcceleration_init();
+void fsm_sendAcceleration_reset();
 void fsm_sendAcceleration_execute();
 void fsm_sendAcceleration_task1ms();
 

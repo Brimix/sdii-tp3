@@ -1,8 +1,11 @@
 #include "fsm_mode.h"
 
 void fsm_mode_init() {
+	// Initialize peripherals
+	key_init();
 	oled_init();
 	oled_setContrast(16);
+
 	DISPLAY_OFF;
 	DISPLAY_PUT(REQUEST_DATA_MSG);
 }
@@ -17,7 +20,6 @@ void fsm_mode_execute() {
 			fsm_frameDetection_execute();
 
 			if (shouldChangeState) {
-				// TODO: Config accel to send 1 interruption w/ measures
 				state = PLOT_3D;
 				DISPLAY_OFF;
 				DISPLAY_PUT(PLOT_3D_MSG);

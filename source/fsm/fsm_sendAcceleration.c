@@ -34,13 +34,12 @@
 #include "fsm_sendAcceleration.h"
 
 /*==================[internal data declaration]==============================*/
-
-int timerDelay = SEND_DELAY;
+static fsm_sendAccelerationState state = WAIT_DELAY;
+static int timerDelay = SEND_DELAY;
 
 /*==================[internal functions declaration]=========================*/
 
 void sendAcceleration() {
-
 	uint8_t sendMessage[15];
 
 	int16_t accX,accY,accZ;
@@ -54,11 +53,26 @@ void sendAcceleration() {
 }
 
 /*==================[external functions declaration]=========================*/
+
+void fsm_sendAcceleration_init() {
+	fsm_sendAcceleration_reset();
+}
+
+void fsm_sendAcceleration_reset() {
+	state = WAIT_DELAY;
+	timerDelay = SEND_DELAY;
+}
+
 void fsm_sendAcceleration_execute() {
-	static fsm_sendAccelerationState state = SEND_DATA;
 	bool isDataReady = false;
 
 	switch (state) {
+		case WAIT_DELAY:
+			if (timerDelay <= 0) {
+				state = SEND_DATA;
+			}
+			break;
+
 		case SEND_DATA:
 			isDataReady = mma8451_isDataReady();
 
@@ -68,12 +82,6 @@ void fsm_sendAcceleration_execute() {
 				// TODO: Request another measure of accel
 				state = WAIT_DELAY;
 				timerDelay = SEND_DELAY;
-			}
-			break;
-
-		case WAIT_DELAY:
-			if (timerDelay <= 0) {
-				state = SEND_DATA;
 			}
 			break;
 	}

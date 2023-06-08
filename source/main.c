@@ -10,12 +10,13 @@
 
 int main(void){
 
-	BOARD_BootClockRUN();//Config del clock
-	board_init(); //Config inicial de SW, LEDS, clock a los puertos, config de I2C, config mma8451
+	BOARD_BootClockRUN(); // Config del clock
+	board_init(); // Config inicial de SW, LEDS, clock a los puertos, config de I2C, config mma8451
 	mma8451_setDataRate(DR_12p5hz);
+
 	uart_ringBuffer_init(); // Inicialización UART1, DMA, creación de Cola Circular
 	board_configSPI0();
-	key_init();
+
 	fsm_mode_init();
 
 	/* Inicializa interrupción de systick cada 1 ms */
@@ -23,7 +24,6 @@ int main(void){
 
     while(1)
     {
-//    	fsm_frameDetection_execute();
     	fsm_mode_execute();
     }
 }

@@ -1,6 +1,0 @@
-../source/ProcesarTrama.c:11:6:LEDS	8	static
-../source/ProcesarTrama.c:59:6:SWITCH	8	static
-../source/ProcesarTrama.c:94:6:ACELEROM	24	static
-../source/ProcesarTrama.c:103:6:Procesando	8	static
-../source/ProcesarTrama.c:127:6:mef_ProcyResp_Trama	8	static
-../source/ProcesarTrama.c:161:6:Ok_Procesar_Trama	16	static

@@ -17,7 +17,7 @@ void fsm_mode_execute() {
 			fsm_frameDetection_execute();
 
 			if (shouldChangeState) {
-				// do stuff...
+				// TODO: Config accel to send 1 interruption w/ measures
 				state = PLOT_3D;
 				DISPLAY_OFF;
 				DISPLAY_PUT(PLOT_3D_MSG);
@@ -26,10 +26,11 @@ void fsm_mode_execute() {
 			break;
 
 		case PLOT_3D:
-			// TODO: Implement new FSM for 3d plotting
+			fsm_sendAcceleration_execute();
+
 			if (shouldChangeState) {
-//				 do stuff...
-//				DISPLAY_OFF;
+				// TODO: Reset accel config
+
 				state = REQUEST_DATA;
 				DISPLAY_OFF;
 				DISPLAY_PUT(REQUEST_DATA_MSG);
@@ -37,4 +38,8 @@ void fsm_mode_execute() {
 			}
 			break;
 	}
+}
+
+void fsm_mode_task1ms() {
+	fsm_sendAcceleration_task1ms();
 }

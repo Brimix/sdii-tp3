@@ -21,5 +21,6 @@ typedef enum {
 
 void fsm_mode_init();
 void fsm_mode_execute();
+void fsm_mode_task1ms();
 
 #endif

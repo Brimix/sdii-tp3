@@ -37,6 +37,7 @@
 
 /*==================[inclusions]=============================================*/
 #include "stdint.h"
+#include "stdbool.h"
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
@@ -70,6 +71,8 @@ typedef enum
  **	
  **/
 void mma8451_init(void);
+
+bool mma8451_isDataReady(void);
 
 /** \brief Lee lectura del aceler�metro en el eje X
  **

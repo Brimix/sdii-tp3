@@ -35,12 +35,12 @@
 
 /*==================[internal data declaration]==============================*/
 
-int timerDelay = 0;
+int timerDelay = SEND_DELAY;
 
 /*==================[internal functions declaration]=========================*/
 
 void sendAcceleration() {
-	printf("Ready to send acceleration!\n");
+
 	uint8_t sendMessage[15];
 
 	int16_t accX,accY,accZ;
@@ -48,8 +48,8 @@ void sendAcceleration() {
 	accY = mma8451_getAcY();
 	accZ = mma8451_getAcZ();
 
-	sprintf((char*)sendMessage, "%d %d %d\0", accX, accY, accZ);
-	printf("Enviando mensaje: %s\n", sendMessage);
+	sprintf((char*)sendMessage, "%d %d %d\n", accX, accY, accZ);
+	//printf("Enviando mensaje: %s\n", sendMessage);
 	uart_dma_envDatos(sendMessage, strlen((char*)sendMessage));
 }
 

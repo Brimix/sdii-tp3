@@ -29,6 +29,7 @@ int main(void){
 }
 
 void SysTick_Handler(void) {
+	fsm_mode_task1ms();
 	key_periodicTask1ms();
 }
 

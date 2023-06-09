@@ -8,6 +8,8 @@ void fsm_mode_init() {
 
 	DISPLAY_OFF;
 	DISPLAY_PUT(REQUEST_DATA_MSG);
+	fsm_frameDetection_init();
+	fsm_sendAcceleration_init();
 }
 
 void fsm_mode_execute() {
@@ -20,6 +22,7 @@ void fsm_mode_execute() {
 			fsm_frameDetection_execute();
 
 			if (shouldChangeState) {
+				fsm_sendAcceleration_reset();
 				state = PLOT_3D;
 				DISPLAY_OFF;
 				DISPLAY_PUT(PLOT_3D_MSG);
@@ -32,7 +35,7 @@ void fsm_mode_execute() {
 
 			if (shouldChangeState) {
 				// TODO: Reset accel config
-
+				fsm_frameDetection_reset();
 				state = REQUEST_DATA;
 				DISPLAY_OFF;
 				DISPLAY_PUT(REQUEST_DATA_MSG);

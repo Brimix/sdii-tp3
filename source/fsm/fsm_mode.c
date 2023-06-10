@@ -46,9 +46,10 @@ void sendMessageToOled(char* msg) {
 void fsm_mode_init() {
 	/* Initialize related peripherals */
 	key_init();
+	board_configSPI0();
 	oled_init();
 	oled_setContrast(16);
-	board_configSPI0();
+
 
 	/* Initialize FSM values */
 	state = REQUEST_DATA;

@@ -8,23 +8,9 @@
 
 uint8_t bufferEnv[32];
 FrameData_t receivedFrame;
-bool frameRecieved = false, responseReady = false;
+bool responseReady = false;
 
 uint8_t* get_bufferEnv() { return bufferEnv; }
-
-bool isFrameRecieved() {
-	if (frameRecieved) {
-		frameRecieved = false; // Clearing flag
-		return true;
-	}
-	return false;
-}
-
-void storeReceivedFrame(char *bufferRec, int length) {
-	frameRecieved = true;
-	strcpy(receivedFrame.data, bufferRec);
-	receivedFrame.data[length] = '\0';
-}
 
 void LEDS() { //cuando se detecta accion sobre LED
 	switch (receivedFrame.actionCode[0]) {
@@ -107,7 +93,10 @@ void ACELEROM() { //cuando se detecta medicion de la aceleracion
 	}
 }
 
-bool processFrame() { //ejecuta función segun periferico que deba intervenir
+bool processFrame(char *bufferRec, int length) { //ejecuta función segun periferico que deba intervenir
+	strcpy(receivedFrame.data, bufferRec);
+	receivedFrame.data[length] = '\0';
+
 	switch (receivedFrame.actionType) {
 		case '0':
 			LEDS();

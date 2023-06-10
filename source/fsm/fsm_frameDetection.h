@@ -59,6 +59,8 @@ typedef enum {
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions definition]==========================*/
+void fsm_frameDetection_reset();
+void fsm_frameDetection_init();
 void fsm_frameDetection_execute();
 void fsm_frameDetection_handle();
 /*==================[cplusplus]==============================================*/

@@ -3,8 +3,8 @@
 
 #include "bsp_kl46/key.h"
 #include "efHal/display/oled.h"
-
-#include "fsm_frameDetection.h"
+#include "fsm/fsm_sendAcceleration.h"
+#include "fsm/fsm_frameDetection.h"
 
 #define GET_SW1				key_getPressEv(BOARD_SW_ID_1);
 

@@ -1,6 +1,8 @@
 #include "fsm_frameDetection.h"
 
 const char* TEAM_ID = ":16";
+static fsm_frameDetectionState state = AWAITING;
+
 
 void receiveFrame(char* frame, int size) {
 	bool matchesMyPattern = (size >= strlen(TEAM_ID)) && strncmp(TEAM_ID, frame, strlen(TEAM_ID))==0;
@@ -11,9 +13,17 @@ void receiveFrame(char* frame, int size) {
 	fsm_frameDetection_handle();
 	}
 }
+void fsm_frameDetection_init(){
+	fsm_frameDetection_reset();
+}
+
+void fsm_frameDetection_reset(){
+	state = AWAITING;
+}
+
 
 void fsm_frameDetection_execute() {
-    static fsm_frameDetectionState state = AWAITING;
+
     static char frame[MAX_FRAME_SIZE];
     static int size = 0;
 
@@ -33,14 +43,10 @@ void fsm_frameDetection_execute() {
 			if (bytesReceivedCount) {
 				switch (byteReceived) {
 					case BYTE_FIN:
-
 						//printf("Detected frame: %s\n", frame);
 						receiveFrame(frame, size);
 						size = 0;
 						state = AWAITING;
-
-
-
 						break;
 
 					case BYTE_START:

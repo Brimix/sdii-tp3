@@ -38,8 +38,6 @@ uint8_t bufferEnv[32];
 FrameData_t receivedFrame;
 bool responseReady = false;
 
-uint8_t* get_bufferEnv() { return bufferEnv; }
-
 void LEDS() { //cuando se detecta accion sobre LED
 	switch (receivedFrame.actionCode[0]) {
 		case '1':

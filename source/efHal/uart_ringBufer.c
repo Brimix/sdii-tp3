@@ -85,32 +85,27 @@ int32_t uart_dma_envDatos(uint8_t *pBuf, int32_t size)
 {
 uart_transfer_t xfer;
 
-if (txOnGoing)
-{
-    size = 0;
-}
-else
-{
-    /* limita size */
-    if (size > TX_BUFFER_DMA_SIZE)
-        size = TX_BUFFER_DMA_SIZE;
+    if (txOnGoing) {
+        size = 0;
+    } else {
+        /* Limita size */
+        if (size > TX_BUFFER_DMA_SIZE) size = TX_BUFFER_DMA_SIZE;
 
-    // Hace copia del buffer a transmitir en otro arreglo para garantizar que el dato a transmitir es el deseado
-    //(dado que podría haberse almacenado otro dato en la dirección de memoria que apunta pBuf)
+        // Hace copia del buffer a transmitir en otro arreglo para garantizar que el dato a transmitir es el deseado
+        //(dado que podría haberse almacenado otro dato en la dirección de memoria que apunta pBuf)
+        memcpy(txBuffer_dma, pBuf, size);
 
-    memcpy(txBuffer_dma, pBuf, size);
+        xfer.data = txBuffer_dma;
+        xfer.dataSize = size;
 
-    xfer.data = txBuffer_dma;
-    xfer.dataSize = size;
+        board_Tx_Rx_485_Enable(Tx);//habilita transmision en el módulo RS485 y deshabilita recepcion
 
-    board_Tx_Rx_485_Enable(Tx);//habilita transmision en el módulo RS485 y deshabilita recepcion
-
-    /*Se inicia la transferencia del dato desde memoria hacia UART1 via DMA*/
-    txOnGoing = true;
-    UART_TransferSendDMA(UART1, &UART1DmaHandle, &xfer);
-    UART_EnableInterrupts(UART1, kUART_TransmissionCompleteInterruptEnable); //Se habilita interrupción en UART1 cuando la transferencia de datos este completa
-}
-return size;
+        /* Se inicia la transferencia del dato desde memoria hacia UART1 via DMA */
+        txOnGoing = true;
+        UART_TransferSendDMA(UART1, &UART1DmaHandle, &xfer);
+        UART_EnableInterrupts(UART1, kUART_TransmissionCompleteInterruptEnable); //Se habilita interrupción en UART1 cuando la transferencia de datos este completa
+    }
+    return size;
 }
 
 void UART1_IRQHandler(void)
@@ -142,6 +137,5 @@ void UART1_IRQHandler(void)
         UART_ClearStatusFlags(UART1, kUART_TransmissionCompleteFlag);
 	}
 }
-
 
 /*==================[end of file]============================================*/

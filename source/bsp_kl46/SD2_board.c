@@ -80,8 +80,8 @@ void board_init(void)
 		.pinDirection = kGPIO_DigitalOutput,
 	};
 	gpio_pin_config_t gpio_sw_config = {
-		.pinDirection = kGPIO_DigitalInput,
-		.outputLogic = 0U
+		.outputLogic = 0U,
+		.pinDirection = kGPIO_DigitalInput
 	};
 	gpio_pin_config_t gpio_oled_config = {
 		.outputLogic = 0,
@@ -89,7 +89,7 @@ void board_init(void)
 	};
 
 	const port_pin_config_t port_led_config = {
-			/* Internal pull-up/down resistor is disabled */
+		/* Internal pull-up/down resistor is disabled */
 		.pullSelect = kPORT_PullDisable,
 		/* Slow slew rate is configured */
 		.slewRate = kPORT_SlowSlewRate,
@@ -133,18 +133,29 @@ void board_init(void)
 	CLOCK_EnableClock(kCLOCK_PortD);
 	CLOCK_EnableClock(kCLOCK_PortE);
 
-	/* inicialización de leds */
+	/* Inicialización de leds */
 	for (i = 0 ; i < BOARD_LED_ID_TOTAL ; i++)
 	{
 		PORT_SetPinConfig(board_gpioLeds[i].port, board_gpioLeds[i].pin, &port_led_config);
 		GPIO_PinInit(board_gpioLeds[i].gpio, board_gpioLeds[i].pin, &gpio_led_config);
 	}
+	
+	/* Inicialización de SWs */
+	for (i = 0 ; i < BOARD_SW_ID_TOTAL; i++)
+	{
+		PORT_SetPinConfig(board_gpioSw[i].port, board_gpioSw[i].pin, &port_sw_config);
+		GPIO_PinInit(board_gpioSw[i].gpio, board_gpioSw[i].pin, &gpio_sw_config);
+	}
 
-	/* inicilización de los pines PTA16 y PTA17 como GPIO*/
+	/* Inicialización de los pines GPIO necesarios para manejar el display OLED */
+	for (i = 0 ; i < OLED_TOTAL ; i++){
+		PORT_SetPinConfig(board_gpioOled[i].port, board_gpioOled[i].pin, &port_oled_config);
+		GPIO_PinInit(board_gpioOled[i].gpio, board_gpioOled[i].pin, &gpio_oled_config);
+	}
 
+	/* Inicilización de los pines PTA16 y PTA17 como GPIO*/
 	PORT_SetPinConfig(PORTA, 16, &port_led_config);
 	GPIO_PinInit(GPIOA, 16, &gpio_led_config);
-
 
 	PORT_SetPinConfig(PORTA, 17, &port_led_config);
 	GPIO_PinInit(GPIOA, 17, &gpio_led_config);
@@ -155,14 +166,12 @@ void board_init(void)
 	PORT_SetPinMux(PORTE, 0U, kPORT_MuxAlt3);
 
 	/* PORTE1 (pin 2) is configured as UART1_RX */
-
 	PORT_SetPinMux(PORTE, 1U, kPORT_MuxAlt3);
 
-	/*Selección de fuente Tx/Rx para la uart1*/
-
+	/* Selección de fuente Tx/Rx para la uart1 */
     SIM->SOPT5 = ((SIM->SOPT5 &
-                   /* Mask bits to zero which are setting */
-                   (~(SIM_SOPT5_UART1TXSRC_MASK | SIM_SOPT5_UART1RXSRC_MASK)))
+                  /* Mask bits to zero which are setting */
+                  (~(SIM_SOPT5_UART1TXSRC_MASK | SIM_SOPT5_UART1RXSRC_MASK)))
 
                   /* UART1 Transmit Data Source Select: UART1_TX pin. */
                   | SIM_SOPT5_UART1TXSRC(SOPT5_UART1TXSRC_UART_TX)
@@ -170,27 +179,12 @@ void board_init(void)
                   /* UART1 Receive Data Source Select: UART1_RX pin. */
                   | SIM_SOPT5_UART1RXSRC(SOPT5_UART1RXSRC_UART_RX));
 
-
-
-	/* inicialización de SWs */
-	for (i = 0 ; i < BOARD_SW_ID_TOTAL; i++)
-	{
-		PORT_SetPinConfig(board_gpioSw[i].port, board_gpioSw[i].pin, &port_sw_config);
-		GPIO_PinInit(board_gpioSw[i].gpio, board_gpioSw[i].pin, &gpio_sw_config);
-	}
-
-	/*Inicialización de los pines GPIO necesarios para manejar el display OLED*/
-	for (i = 0 ; i < OLED_TOTAL ; i++){
-		PORT_SetPinConfig(board_gpioOled[i].port, board_gpioOled[i].pin, &port_oled_config);
-		GPIO_PinInit(board_gpioOled[i].gpio, board_gpioOled[i].pin, &gpio_oled_config);
-	}
-
 	/* =========== I2C =================== */
-
 	SD2_I2C_init();
 
 	/* =========== MMA8451 ================ */
 	mma8451_init();
+	mma8451_setDataRate(DR_12p5hz);
 }
 
 

@@ -78,8 +78,6 @@ void fsm_sendAcceleration_execute() {
 
 			if (isDataReady) {
 				sendAcceleration();
-
-				// TODO: Request another measure of accel
 				state = WAIT_DELAY;
 				timerDelay = SEND_DELAY;
 			}

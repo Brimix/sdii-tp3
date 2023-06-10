@@ -31,37 +31,40 @@
  *
  */
 
-#ifndef FSM_FRAMEDETECTION_H_
-#define FSM_FRAMEDETECTION_H_
+#ifndef FRAMEPROCESSOR_H_
+#define FRAMEPROCESSOR_H_
 
 /*==================[inclusions]=============================================*/
-#include <MKL46Z4.h>
-#include "frameProcessor/frameProcessor.h"
+#include <stdbool.h>
+#include <math.h>
+
+#include "pin_mux.h"
+#include "MKL46Z4.h"
+#include "efHal/uart_ringBuffer.h"
+#include "bsp_kl46/SD2_board.h"
+#include "bsp_kl46/mma8451.h"
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/*==================[macros]=================================================*/
-#define MAX_FRAME_SIZE		8
-#define BYTE_START 			':'
-#define BYTE_FIN			0x0A
-#define CHAR_END			'\0'
-#define TEAM_ID				":16"
-
 /*==================[typedef]================================================*/
-typedef enum {
-	AWAITING = 0,
-	RECEIVING,
-} fsm_frameDetectionState;
+typedef union {
+	struct {
+		char initChar;
+		char teamCode[2];
+		char actionType;
+		char actionCode[2];
+	};
+	char data[6];
+} FrameData_t;
 
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions definition]==========================*/
-void fsm_frameDetection_reset();
-void fsm_frameDetection_init();
-void fsm_frameDetection_execute();
+uint8_t* get_bufferEnv();
+bool processFrame(char *bufferRec, int length);
 
 /*==================[cplusplus]==============================================*/
 #ifdef __cplusplus
@@ -69,4 +72,4 @@ void fsm_frameDetection_execute();
 #endif
 
 /*==================[end of file]============================================*/
-#endif /* FSM_FRAMEDETECTION_H_ */
+#endif /* FRAMEPROCESSOR_H_ */

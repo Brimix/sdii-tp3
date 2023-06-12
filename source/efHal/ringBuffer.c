@@ -38,15 +38,6 @@
 
 /*==================[macros and definitions]=================================*/
 
-typedef struct
-{
-    int32_t indexRead;
-    int32_t indexWrite;
-    int32_t count;
-    int32_t size;
-    uint8_t *pBuf;
-}ringBuferData_struct;
-
 /*==================[internal data declaration]==============================*/
 
 /*==================[internal functions declaration]=========================*/
@@ -63,10 +54,12 @@ void *ringBuffer_init(int32_t size)
 {
     ringBuferData_struct *rb;
 
-    /* TODO: verificar puntero null*/
+    /** Memory allocation may fail and return a null pointer.
+      * In such case you will have an unhandled exception.
+      */
     rb = malloc(sizeof(ringBuferData_struct));
 
-    /* TODO: verificar puntero null*/
+    /* Same as before */
     rb->pBuf = malloc(size);
 
     rb->indexRead = 0;
@@ -77,9 +70,10 @@ void *ringBuffer_init(int32_t size)
     return rb;
 }
 
-void ringBuffer_deInit(void *rb)
+void ringBuffer_deInit(ringBuferData_struct *rb)
 {
-    // TODO: implementar
+    free(rb->pBuf);
+    free(rb);
 }
 
 bool ringBuffer_putData(void *pRb, uint8_t data)

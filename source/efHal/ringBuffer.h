@@ -47,6 +47,14 @@ extern "C" {
 /*==================[macros]=================================================*/
 
 /*==================[typedef]================================================*/
+typedef struct
+{
+    int32_t indexRead;
+    int32_t indexWrite;
+    int32_t count;
+    int32_t size;
+    uint8_t *pBuf;
+} ringBuferData_struct;
 
 /*==================[external data declaration]==============================*/
 
@@ -65,7 +73,7 @@ void *ringBuffer_init(int32_t size);
  ** \param[in] pRb puntero al buffer circular
  **
  **/
-void ringBuffer_deInit(void *pRb);
+void ringBuffer_deInit(ringBuferData_struct *pRb);
 
 /** \brief pone nuevo dato en el buffer circular
  ** si el buffer esta lleno se pisa el dato más antiguo

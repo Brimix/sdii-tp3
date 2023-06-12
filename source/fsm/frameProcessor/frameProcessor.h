@@ -49,6 +49,10 @@
 extern "C" {
 #endif
 
+/*==================[macros]=================================================*/
+#define TEAM_ID					"16"
+#define MIN_EXCPECTED_LENGTH	5
+
 /*==================[typedef]================================================*/
 typedef union {
 	struct {

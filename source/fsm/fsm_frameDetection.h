@@ -45,10 +45,9 @@ extern "C" {
 
 /*==================[macros]=================================================*/
 #define MAX_FRAME_SIZE		8
-#define BYTE_START 			':'
+#define BYTE_START 			0x3A
 #define BYTE_FIN			0x0A
 #define CHAR_END			'\0'
-#define TEAM_ID				":16"
 
 /*==================[typedef]================================================*/
 typedef enum {

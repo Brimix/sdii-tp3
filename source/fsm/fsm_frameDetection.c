@@ -41,14 +41,8 @@ static int size;
 /*==================[internal functions definition]==========================*/
 void handleFrame(char *frame, int size) {
 	// printf("Frame received! Started processing...\n");
-
-	bool matchesMyPattern = (size >= strlen(TEAM_ID)) && strncmp(TEAM_ID, frame, strlen(TEAM_ID))==0;
-	if (!matchesMyPattern) {
-		// printf("Frame is not for me!\nDiscarding frame... %s\n", frame);
-		return;
-	}
-
 	bool isSuccessfulProcess = processFrame(frame, size);
+
 	// printf("Processing finished. ");
 	if (!isSuccessfulProcess) {
 		// printf("Frame unrecognized\n");

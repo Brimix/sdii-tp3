@@ -123,8 +123,19 @@ void ACELEROM() { //cuando se detecta medicion de la aceleracion
 uint8_t* get_bufferEnv() { return bufferEnv; }
 
 bool processFrame(char *bufferRec, int length) { //ejecuta función segun periferico que deba intervenir
+	if (length < MIN_EXCPECTED_LENGTH) {
+		// printf("Frame too short\nDiscarding frame... %s\n", bufferRec);
+		return false;
+	}
+
 	strcpy(receivedFrame.data, bufferRec);
 	receivedFrame.data[length] = '\0';
+
+	bool matchesMyPattern = strncmp(TEAM_ID, receivedFrame.teamCode, strlen(TEAM_ID)) == 0;
+	if (!matchesMyPattern) {
+		// printf("Frame is not for me!\nDiscarding frame... %s\n", bufferRec);
+		return false;
+	}
 
 	switch (receivedFrame.actionType) {
 		case '0':

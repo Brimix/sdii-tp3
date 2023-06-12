@@ -25,6 +25,7 @@ extern "C" {
 
 /*==================[external functions definition]==========================*/
 void uart_ringBuffer_init(void);
+void uart_dma_init(void);
 int32_t uart_ringBuffer_recDatos(uint8_t *pBuf, int32_t size);
 int32_t uart_dma_envDatos(uint8_t *pBuf, int32_t size);
 

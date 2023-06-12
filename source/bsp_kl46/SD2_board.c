@@ -168,16 +168,6 @@ void board_init(void)
 	/* PORTE1 (pin 2) is configured as UART1_RX */
 	PORT_SetPinMux(PORTE, 1U, kPORT_MuxAlt3);
 
-	/* Selección de fuente Tx/Rx para la uart1 */
-    SIM->SOPT5 = ((SIM->SOPT5 &
-                  /* Mask bits to zero which are setting */
-                  (~(SIM_SOPT5_UART1TXSRC_MASK | SIM_SOPT5_UART1RXSRC_MASK)))
-
-                  /* UART1 Transmit Data Source Select: UART1_TX pin. */
-                  | SIM_SOPT5_UART1TXSRC(SOPT5_UART1TXSRC_UART_TX)
-
-                  /* UART1 Receive Data Source Select: UART1_RX pin. */
-                  | SIM_SOPT5_UART1RXSRC(SOPT5_UART1RXSRC_UART_RX));
 
 	/* =========== I2C =================== */
 	SD2_I2C_init();

@@ -22,8 +22,7 @@ static void UART_UserCallback(UART_Type *base, uart_dma_handle_t *handle, status
     }
 }
 
-void uart_ringBuffer_init(void)
-{
+void uart_ringBuffer_init(void){
 	uart_config_t config;
 
     pRingBufferRx = ringBuffer_init(16); //crea cola circualar de 16B
@@ -46,9 +45,13 @@ void uart_ringBuffer_init(void)
 
     NVIC_EnableIRQ(UART1_IRQn); // Habilitación de interrupción en NVIC por pedido de UART1
 
+    uart_dma_init();
+
+}
+
+void uart_dma_init(void){
 	/* CONFIGURACIÓN DMA (sólo para TX) */
 	/* Init DMAMUX */
-
 	DMAMUX_Init(DMAMUX0);
 
 	/* Set channel for UART1  */
@@ -61,8 +64,9 @@ void uart_ringBuffer_init(void)
 
 	/* Create UART1 DMA handle. */
 	UART_TransferCreateHandleDMA(UART1,&UART1DmaHandle,UART_UserCallback,NULL,&UART1TxDmaHandle,NULL);
-
 }
+
+
 
 int32_t uart_ringBuffer_recDatos(uint8_t *pBuf, int32_t size)
 {

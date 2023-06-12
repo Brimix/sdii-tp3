@@ -131,7 +131,7 @@ bool processFrame(char *bufferRec, int length) { //ejecuta función segun perife
 	strcpy(receivedFrame.data, bufferRec);
 	receivedFrame.data[length] = '\0';
 
-	bool matchesMyPattern = strcmp(TEAM_ID, receivedFrame.teamCode) == 0;
+	bool matchesMyPattern = strncmp(TEAM_ID, receivedFrame.teamCode, strlen(TEAM_ID)) == 0;
 	if (!matchesMyPattern) {
 		// printf("Frame is not for me!\nDiscarding frame... %s\n", bufferRec);
 		return false;

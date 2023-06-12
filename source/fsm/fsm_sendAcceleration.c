@@ -47,7 +47,9 @@ void sendAcceleration() {
 	accY = mma8451_getAcY();
 	accZ = mma8451_getAcZ();
 
-	sprintf((char*)sendMessage, "%d %d %d\n", accX, accY, accZ);
+
+
+	sprintf((char*)sendMessage, " %d %d %d\n", accX, accY, accZ);
 	//printf("Enviando mensaje: %s\n", sendMessage);
 	uart_dma_envDatos(sendMessage, strlen((char*)sendMessage));
 }
